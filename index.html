@@ -3,18 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tshepisong Market Place - Admin 0789313670</title>
+<title>Tshepisong Market - FIXED ADMIN</title>
 <style>
-body{background:#0f0f0f;color:#fff;font-family:Arial;margin:0;padding:0}
-header{background:#0a7a3b;padding:12px 16px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center}
-header h1{margin:0;font-size:17px}
+body{background:#0f0f0f;color:#fff;font-family:Arial;margin:0}
+header{background:#0a7a3b;padding:12px 16px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between}
 .card{background:#1e1e1e;padding:15px;border-radius:14px;margin:12px;border:1px solid #333}
-button{background:#25D366;color:#000;padding:12px;border:0;border-radius:10px;font-weight:bold;width:100%;margin:6px 0;font-size:15px;cursor:pointer}
+button{background:#25D366;color:#000;padding:12px;border:0;border-radius:10px;font-weight:bold;width:100%;margin:6px 0;font-size:15px}
 button.yellow{background:#ffcc00} button.green{background:#0a7a3b;color:#fff} button.red{background:#ff4444;color:#fff} button.blue{background:#2196F3;color:#fff}
 input,select,textarea{padding:12px;width:100%;border-radius:10px;border:0;margin:6px 0;background:#2a2a2a;color:#fff;font-size:15px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .item{background:#252525;border-radius:12px;overflow:hidden;border:1px solid #333}
-.item img{width:100%;height:130px;object-fit:cover;background:#333}
+.item img{width:100%;height:130px;object-fit:cover}
 .hidden{display:none}
 .tabs{display:flex;gap:6px;margin:8px 0}
 .tabs button{flex:1;padding:10px;font-size:13px;background:#333;color:#fff}
@@ -24,293 +23,162 @@ input,select,textarea{padding:12px;width:100%;border-radius:10px;border:0;margin
 </head>
 <body>
 <header><h1>🏠 Tshepisong Market</h1><div id="userTop" style="font-size:11px">Not logged</div></header>
-
-<div id="status" class="card" style="border-left:4px solid #25D366">✅ Ready! Sellers register. Admin 0789313670 PIN 1990</div>
+<div id="status" class="card" style="border-left:4px solid #25D366">✅ Fixed Admin Login! Number: 0789313670 PIN: 1990</div>
 
 <div id="authCard" class="card">
 <div class="tabs">
-<button id="tabSeller" class="active" onclick="showTab('seller')">👥 Seller Login</button>
-<button id="tabAdmin" onclick="showTab('admin')">🔐 Admin Login</button>
+<button id="tabSeller" class="active" onclick="showTab('seller')">👥 Seller</button>
+<button id="tabAdmin" onclick="showTab('admin')">🔐 Admin</button>
 </div>
 
 <div id="sellerBox">
-<h3>📱 Seller Register - WhatsApp + PIN + Name + Surname</h3>
-<input id="r_phone" placeholder="WhatsApp: 0761234567" type="tel">
-<input id="r_pin" placeholder="Create 4-digit PIN" type="password" maxlength="6" inputmode="numeric">
-<input id="r_name" placeholder="Full Name e.g. Thabo">
-<input id="r_surname" placeholder="Surname e.g. Molefe">
-<select id="r_location"><option>Tshepisong Phase 1</option><option>Phase 2</option><option>Phase 3</option><option>Phase 4</option><option>Phase 5</option><option>Roodepoort</option><option>Other</option></select>
-<button onclick="registerSeller()">✅ REGISTER & START SELLING</button>
-<hr style="border-color:#333;margin:15px 0">
-<h3>🔑 Seller Login</h3>
-<input id="l_phone" placeholder="WhatsApp Number" type="tel">
-<input id="l_pin" placeholder="Your PIN" type="password">
-<button onclick="loginSeller()" class="green">LOGIN AS SELLER</button>
+<h3>📱 Seller Register</h3>
+<input id="r_phone" placeholder="WhatsApp: 0761234567" type="tel"><input id="r_pin" placeholder="PIN" type="password" maxlength="6"><input id="r_name" placeholder="Full Name"><input id="r_surname" placeholder="Surname"><select id="r_location"><option>Phase 1</option><option>Phase 2</option><option>Phase 3</option><option>Phase 4</option><option>Phase 5</option><option>Roodepoort</option></select>
+<button onclick="registerSeller()">✅ REGISTER</button>
+<hr><h3>🔑 Seller Login</h3><input id="l_phone" placeholder="WhatsApp" type="tel"><input id="l_pin" placeholder="PIN" type="password"><button onclick="loginSeller()" class="green">LOGIN SELLER</button>
 </div>
 
 <div id="adminBox" class="hidden admin-bg">
 <h3>🔐 Admin Login - 0789313670</h3>
-<p style="font-size:12px;color:#ffcc00">Admin Only: 0789313670<br>PIN: 1990 (can be changed inside admin panel)</p>
+<p style="font-size:13px;color:#ffcc00">Number: 0789313670<br>PIN: 1990 (fixed)</p>
 <input id="a_phone" type="tel" value="0789313670" readonly style="background:#111;color:#ffcc00;font-weight:bold">
-<input id="a_pin" placeholder="Admin PIN: 1990" type="password" value="">
-<button onclick="loginAdmin()" class="yellow">🔐 LOGIN AS ADMIN (PIN 1990)</button>
+<input id="a_pin" placeholder="Enter PIN 1990" type="password" value="1990">
+<button onclick="loginAdmin()" class="yellow">🔐 LOGIN ADMIN - PIN 1990</button>
+<button onclick="testAdmin()" style="background:#555;font-size:12px">🔍 TEST - Show Admin Data</button>
 </div>
 </div>
 
 <div id="sellCard" class="card hidden">
-<h3>➕ Sell Your Stuff - New or Old</h3>
-<input id="p_title" placeholder="What are you selling? e.g. Jordan Shoes size 8">
-<select id="p_cat"><option>Clothes</option><option>Electronics</option><option>Furniture</option><option>Beauty</option><option>Kids</option><option>Cars</option><option>Other</option></select>
-<select id="p_cond"><option>New - Never used</option><option>Like New - Used few times</option><option>Used - Old but working</option></select>
-<input id="p_price" type="number" placeholder="Price R e.g. 350">
-<textarea id="p_desc" placeholder="Describe condition, size, reason..."></textarea>
-<input id="p_image" type="file" accept="image/*">
-<button onclick="sellItem()">📢 POST FOR SALE</button>
-<button onclick="logout()" style="background:#555">Logout</button>
+<h3>➕ Sell</h3><input id="p_title" placeholder="Title"><select id="p_cat"><option>Clothes</option><option>Electronics</option><option>Furniture</option><option>Beauty</option><option>Kids</option><option>Cars</option><option>Other</option></select><select id="p_cond"><option>New</option><option>Like New</option><option>Used</option></select><input id="p_price" type="number" placeholder="Price R"><textarea id="p_desc" placeholder="Describe"></textarea><input id="p_image" type="file" accept="image/*"><button onclick="sellItem()">📢 POST</button><button onclick="logout()" style="background:#555">Logout</button>
 </div>
 
 <div id="adminPanel" class="card hidden admin-bg">
 <h2>👑 ADMIN PANEL - 0789313670</h2>
-<p style="font-size:12px;color:#ffcc00">Welcome Admin! PIN: 1990 | Only you can manage market</p>
-<div class="tabs">
-<button id="atStats" class="active" onclick="showAdminTab('stats')">📊 Stats</button>
-<button id="atSellers" onclick="showAdminTab('sellers')">👥 Sellers</button>
-<button id="atItems" onclick="showAdminTab('items')">📦 Items</button>
-<button id="atSettings" onclick="showAdminTab('settings')">⚙️ Settings</button>
-</div>
-<div id="adminStats"></div>
-<div id="adminSellers" class="hidden"></div>
-<div id="adminItems" class="hidden"></div>
+<div class="tabs"><button id="atStats" class="active" onclick="showAdminTab('stats')">Stats</button><button id="atSellers" onclick="showAdminTab('sellers')">Sellers</button><button id="atItems" onclick="showAdminTab('items')">Items</button><button id="atSettings" onclick="showAdminTab('settings')">Settings</button></div>
+<div id="adminStats"></div><div id="adminSellers" class="hidden"></div><div id="adminItems" class="hidden"></div>
 <div id="adminSettings" class="hidden">
-<h3>🔐 Reset Admin PIN - Only Here!</h3>
-<p style="font-size:12px;color:#aaa">Current PIN: 1990 - Can only be changed inside this admin panel</p>
-<input id="oldAdminPin" placeholder="Current PIN: 1990" type="password">
-<input id="newAdminPin1" placeholder="New Admin PIN" type="password">
-<input id="newAdminPin2" placeholder="Confirm New PIN" type="password">
-<button onclick="resetAdminPin()" class="yellow">🔄 RESET ADMIN PIN</button>
-<hr style="border-color:#333">
-<h3>⚠️ Danger Zone - Admin Only</h3>
-<button onclick="clearAllData()" class="red">🗑️ CLEAR ALL SELLERS & ITEMS</button>
-<button onclick="logout()" style="background:#555">Logout Admin</button>
+<h3>🔐 Reset Admin PIN</h3><input id="oldAdminPin" placeholder="Current PIN 1990" type="password"><input id="newAdminPin1" placeholder="New PIN" type="password"><input id="newAdminPin2" placeholder="Confirm" type="password"><button onclick="resetAdminPin()" class="yellow">RESET ADMIN PIN</button><hr><button onclick="clearAllData()" class="red">CLEAR ALL DATA</button><button onclick="logout()" style="background:#555">Logout Admin</button>
 </div>
 </div>
 
-<div class="card">
-<h3>🛒 Marketplace - Tshepisong</h3>
-<input id="search" placeholder="Search e.g. iPhone, couch..." oninput="renderMarket()">
-<div id="market" class="grid">Loading market...</div>
-</div>
+<div class="card"><h3>🛒 Marketplace</h3><input id="search" placeholder="Search..." oninput="renderMarket()"><div id="market" class="grid"></div></div>
 
 <script>
-const ADMIN_NUMBER = '789313670';
-const ADMIN_DEFAULT_PIN = '1990';
+const ADMIN_NUMBER = '0789313670';
+const ADMIN_PIN = '1990';
 
-function setStatus(t){ document.getElementById('status').innerHTML = t; }
+function setStatus(t){ document.getElementById('status').innerHTML=t; }
 function cleanPhone(p){ return p.replace(/\D/g,'').slice(-10); }
 function getUsers(){ try{ return JSON.parse(localStorage.getItem('tshepi_users')||'{}'); }catch{ return {}; } }
 function saveUsers(u){ localStorage.setItem('tshepi_users', JSON.stringify(u)); }
 function getItems(){ try{ return JSON.parse(localStorage.getItem('tshepi_items')||'[]'); }catch{ return []; } }
 function saveItems(i){ localStorage.setItem('tshepi_items', JSON.stringify(i)); }
-
-// ADMIN AUTO-CREATE WITH PIN 1990
-function getAdmin(){
-  try{
-    let a = JSON.parse(localStorage.getItem('tshepi_admin')||'null');
-    if(!a){
-      a = { phone: ADMIN_NUMBER, pin: ADMIN_DEFAULT_PIN, fullName: 'Admin - Tshepisong Market Place', created: Date.now() };
-      localStorage.setItem('tshepi_admin', JSON.stringify(a));
-    }
+function getAdmin(){ 
+  try{ 
+    let a=JSON.parse(localStorage.getItem('tshepi_admin')||'null'); 
+    if(!a){ a={phone:ADMIN_NUMBER,pin:ADMIN_PIN,fullName:'Admin'}; localStorage.setItem('tshepi_admin',JSON.stringify(a)); }
     return a;
-  }catch{
-    const a = { phone: ADMIN_NUMBER, pin: ADMIN_DEFAULT_PIN, fullName: 'Admin', created: Date.now() };
-    localStorage.setItem('tshepi_admin', JSON.stringify(a));
-    return a;
+  }catch{ 
+    let a={phone:ADMIN_NUMBER,pin:ADMIN_PIN,fullName:'Admin'}; localStorage.setItem('tshepi_admin',JSON.stringify(a)); return a;
   }
 }
-function saveAdmin(a){ localStorage.setItem('tshepi_admin', JSON.stringify(a)); }
+function saveAdmin(a){ localStorage.setItem('tshepi_admin',JSON.stringify(a)); }
 
 function showTab(t){
-  document.getElementById('sellerBox').className = t==='seller'?'':'hidden';
-  document.getElementById('adminBox').className = t==='admin'?'admin-bg':'hidden admin-bg';
-  document.getElementById('tabSeller').className = t==='seller'?'active':'';
-  document.getElementById('tabAdmin').className = t==='admin'?'active':'';
+  document.getElementById('sellerBox').className=t==='seller'?'':'hidden';
+  document.getElementById('adminBox').className=t==='admin'?'admin-bg':'hidden admin-bg';
+  document.getElementById('tabSeller').className=t==='seller'?'active':'';
+  document.getElementById('tabAdmin').className=t==='admin'?'active':'';
 }
 function showAdminTab(t){
-  document.getElementById('adminStats').className = t==='stats'?'':'hidden';
-  document.getElementById('adminSellers').className = t==='sellers'?'':'hidden';
-  document.getElementById('adminItems').className = t==='items'?'':'hidden';
-  document.getElementById('adminSettings').className = t==='settings'?'':'hidden';
-  document.getElementById('atStats').className = t==='stats'?'active':''; 
-  document.getElementById('atSellers').className = t==='sellers'?'active':'';
-  document.getElementById('atItems').className = t==='items'?'active':'';
-  document.getElementById('atSettings').className = t==='settings'?'active':'';
-  if(t==='stats') renderAdminStats();
-  if(t==='sellers') renderAdminSellers();
-  if(t==='items') renderAdminItems();
+  document.getElementById('adminStats').className=t==='stats'?'':'hidden';
+  document.getElementById('adminSellers').className=t==='sellers'?'':'hidden';
+  document.getElementById('adminItems').className=t==='items'?'':'hidden';
+  document.getElementById('adminSettings').className=t==='settings'?'':'hidden';
+  document.querySelectorAll('#adminPanel .tabs button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('at'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('active');
+  if(t==='stats') renderAdminStats(); if(t==='sellers') renderAdminSellers(); if(t==='items') renderAdminItems();
+}
+
+function testAdmin(){
+  const admin=getAdmin();
+  alert('Admin Data:\nPhone: '+admin.phone+'\nPIN: '+admin.pin+'\n\nInput Phone: '+document.getElementById('a_phone').value+'\nCleaned: '+cleanPhone(document.getElementById('a_phone').value)+'\n\nInput PIN: '+document.getElementById('a_pin').value);
 }
 
 function loginAdmin(){
-  const phone = cleanPhone(document.getElementById('a_phone').value);
-  const pin = document.getElementById('a_pin').value.trim();
-  const admin = getAdmin();
-  
-  if(phone !== ADMIN_NUMBER){ alert('❌ Only 0789313670 can login as admin!'); return; }
-  if(admin.pin !== pin){ alert('❌ Wrong Admin PIN! Default is 1990'); return; }
-  
-  localStorage.setItem('tshepi_current', 'ADMIN_'+ADMIN_NUMBER);
-  localStorage.setItem('tshepi_role', 'admin');
-  document.getElementById('authCard').classList.add('hidden');
-  document.getElementById('sellCard').classList.add('hidden');
-  document.getElementById('adminPanel').classList.remove('hidden');
-  document.getElementById('userTop').innerText = '👑 ADMIN 0789313670';
-  setStatus('👑 Admin logged in! PIN 1990 - Manage Tshepisong Market');
-  renderAdminStats();
+  try{
+    const phoneInput=document.getElementById('a_phone').value;
+    const phone=cleanPhone(phoneInput);
+    const pin=document.getElementById('a_pin').value.trim();
+    const admin=getAdmin();
+    
+    setStatus('Trying admin login... Phone:'+phone+' PIN:'+pin+' | Saved Phone:'+admin.phone+' PIN:'+admin.pin);
+    
+    if(phone !== ADMIN_NUMBER){ alert('Only 0789313670! You entered: '+phone); return; }
+    if(pin !== admin.pin){ alert('Wrong PIN! Saved PIN is: '+admin.pin+' You entered: '+pin); return; }
+    
+    localStorage.setItem('tshepi_current','ADMIN_'+ADMIN_NUMBER);
+    localStorage.setItem('tshepi_role','admin');
+    document.getElementById('authCard').classList.add('hidden');
+    document.getElementById('sellCard').classList.add('hidden');
+    document.getElementById('adminPanel').classList.remove('hidden');
+    document.getElementById('userTop').innerText='👑 ADMIN 0789313670';
+    setStatus('👑 Admin logged in! 0789313670 PIN 1990');
+    renderAdminStats();
+    alert('✅ Admin Logged In!\n0789313670\nPIN 1990');
+  }catch(e){ alert('Admin login error: '+e.message); }
 }
 
 function registerSeller(){
-  try{
-    const phone = cleanPhone(document.getElementById('r_phone').value);
-    const pin = document.getElementById('r_pin').value.trim();
-    const name = document.getElementById('r_name').value.trim();
-    const surname = document.getElementById('r_surname').value.trim();
-    const loc = document.getElementById('r_location').value;
-    
-    if(phone === ADMIN_NUMBER){ alert('❌ 0789313670 is reserved for Admin! Use different number. Admin logs in via Admin tab with PIN 1990'); showTab('admin'); return; }
-    if(phone.length < 10){ alert('Enter valid WhatsApp e.g. 0761234567'); return; }
-    if(pin.length < 4){ alert('PIN must be 4 digits'); return; }
-    if(!name || !surname){ alert('Enter Full Name and Surname'); return; }
-    
-    const users = getUsers();
-    if(users[phone]){ alert('This WhatsApp already registered! Login.'); return; }
-    
-    users[phone] = { phone, pin, name, surname, fullName: name+' '+surname, location: loc, joined: Date.now() };
-    saveUsers(users);
-    localStorage.setItem('tshepi_current', phone);
-    localStorage.setItem('tshepi_role', 'seller');
-    document.getElementById('authCard').classList.add('hidden');
-    document.getElementById('sellCard').classList.remove('hidden');
-    document.getElementById('userTop').innerText = name+' '+surname+' ('+phone+')';
-    setStatus('✅ Welcome '+name+' '+surname+'! You can now sell in Tshepisong!');
-    alert('✅ Registered!\n'+name+' '+surname+'\nPhone: '+phone+'\nPIN: '+pin);
-    renderMarket();
-  }catch(e){ alert('Error: '+e.message); }
+  const phone=cleanPhone(document.getElementById('r_phone').value);
+  const pin=document.getElementById('r_pin').value.trim();
+  const name=document.getElementById('r_name').value.trim();
+  const surname=document.getElementById('r_surname').value.trim();
+  const loc=document.getElementById('r_location').value;
+  if(phone===ADMIN_NUMBER){ alert('0789313670 reserved for admin!'); showTab('admin'); return; }
+  if(phone.length<10){ alert('Enter WhatsApp'); return; }
+  if(pin.length<4){ alert('PIN 4+'); return; }
+  if(!name||!surname){ alert('Name+Surname'); return; }
+  const users=getUsers(); if(users[phone]){ alert('Already registered'); return; }
+  users[phone]={phone,pin,name,surname,fullName:name+' '+surname,location:loc,joined:Date.now()}; saveUsers(users);
+  localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller');
+  document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=name+' '+surname; alert('✅ Registered '+name+' '+surname); renderMarket();
 }
-
 function loginSeller(){
-  try{
-    const phone = cleanPhone(document.getElementById('l_phone').value);
-    const pin = document.getElementById('l_pin').value.trim();
-    if(phone === ADMIN_NUMBER){ alert('Admin number! Use Admin tab with PIN 1990'); showTab('admin'); return; }
-    const users = getUsers();
-    if(!users[phone]){ alert('Not registered! Register first'); return; }
-    if(users[phone].pin !== pin){ alert('Wrong PIN'); return; }
-    localStorage.setItem('tshepi_current', phone);
-    localStorage.setItem('tshepi_role', 'seller');
-    document.getElementById('authCard').classList.add('hidden');
-    document.getElementById('sellCard').classList.remove('hidden');
-    document.getElementById('userTop').innerText = users[phone].fullName+' ('+phone+')';
-    setStatus('✅ Logged in: '+users[phone].fullName+' from '+users[phone].location);
-    alert('Welcome back '+users[phone].fullName);
-    renderMarket();
-  }catch(e){ alert('Login Error: '+e.message); }
+  const phone=cleanPhone(document.getElementById('l_phone').value);
+  const pin=document.getElementById('l_pin').value.trim();
+  if(phone===ADMIN_NUMBER){ alert('Use Admin tab'); showTab('admin'); return; }
+  const users=getUsers(); if(!users[phone]){ alert('Not registered'); return; }
+  if(users[phone].pin!==pin){ alert('Wrong PIN'); return; }
+  localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller');
+  document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[phone].fullName; renderMarket();
 }
-
 function logout(){ localStorage.removeItem('tshepi_current'); localStorage.removeItem('tshepi_role'); location.reload(); }
-
 async function sellItem(){
-  try{
-    const cur = localStorage.getItem('tshepi_current');
-    const users = getUsers();
-    const seller = users[cur];
-    if(!seller){ alert('Login as seller first'); return; }
-    const title = document.getElementById('p_title').value.trim();
-    const cat = document.getElementById('p_cat').value;
-    const cond = document.getElementById('p_cond').value;
-    const price = parseInt(document.getElementById('p_price').value);
-    const desc = document.getElementById('p_desc').value.trim();
-    const file = document.getElementById('p_image').files[0];
-    if(!title || !price){ alert('Enter title and price'); return; }
-    let img=''; if(file){ img = await new Promise(res=>{ const r=new FileReader(); r.onload=e=>res(e.target.result); r.readAsDataURL(file); }); }
-    const items = getItems();
-    items.unshift({ id: Date.now()+'', title, category: cat, condition: cond, price, desc, sellerPhone: cur, sellerName: seller.fullName, sellerLocation: seller.location, image: img, created: Date.now() });
-    saveItems(items);
-    document.getElementById('p_title').value=''; document.getElementById('p_price').value=''; document.getElementById('p_desc').value=''; document.getElementById('p_image').value='';
-    alert('✅ Posted! Buyers in Tshepisong will see it now!');
-    renderMarket();
-  }catch(e){ alert('Post Error: '+e.message); }
+  const cur=localStorage.getItem('tshepi_current'); const users=getUsers(); const seller=users[cur];
+  if(!seller){ alert('Login seller'); return; }
+  const title=document.getElementById('p_title').value.trim(); const cat=document.getElementById('p_cat').value; const cond=document.getElementById('p_cond').value; const price=parseInt(document.getElementById('p_price').value); const desc=document.getElementById('p_desc').value.trim(); const file=document.getElementById('p_image').files[0];
+  if(!title||!price){ alert('Title+Price'); return; }
+  let img=''; if(file){ img=await new Promise(res=>{ const r=new FileReader(); r.onload=e=>res(e.target.result); r.readAsDataURL(file); }); }
+  const items=getItems(); items.unshift({id:Date.now()+'',title,category:cat,condition:cond,price,desc,sellerPhone:cur,sellerName:seller.fullName,sellerLocation:seller.location,image:img,created:Date.now()}); saveItems(items);
+  document.getElementById('p_title').value=''; document.getElementById('p_price').value=''; document.getElementById('p_desc').value=''; document.getElementById('p_image').value=''; alert('Posted!'); renderMarket();
 }
-
 function renderMarket(){
-  const items = getItems();
-  const search = document.getElementById('search').value.toLowerCase();
-  const cur = localStorage.getItem('tshepi_current');
-  let filtered = items.filter(it=>{ if(search && !it.title.toLowerCase().includes(search) && !(it.desc||'').toLowerCase().includes(search)) return false; return true; });
-  const div = document.getElementById('market');
-  if(filtered.length===0){ div.innerHTML = '<div style="grid-column:1/3;text-align:center;padding:20px;color:#888">No items yet.<br>Be first to sell in Tshepisong!</div>'; return; }
-  div.innerHTML = filtered.map(it=>{
-    const wa = 'https://wa.me/27'+it.sellerPhone.slice(-9)+'?text=Hi '+encodeURIComponent(it.sellerName)+' I saw your '+encodeURIComponent(it.title)+' for R'+it.price+' on Tshepisong Market Place. Is it still available?';
-    return '<div class="item">'+(it.image?'<img src="'+it.image+'">':'<div style="height:130px;background:#333;display:flex;align-items:center;justify-content:center">📦 No Image</div>')+'<div style="padding:8px"><div style="font-weight:bold;margin:2px 0">'+it.title+'</div><div style="color:#ffcc00;font-weight:bold">R'+it.price+' • '+it.condition+'</div><div style="font-size:11px;color:#aaa">📍 '+it.sellerLocation+' • 👤 '+it.sellerName+'</div><div style="font-size:11px;color:#ccc">'+(it.desc||'').slice(0,50)+'</div><a href="'+wa+'" target="_blank" style="text-decoration:none"><button style="margin-top:6px">💬 WhatsApp Seller</button></a>'+(cur===it.sellerPhone?'<button onclick="deleteItem(\''+it.id+'\')" class="red">Delete</button>':'')+'</div></div>';
-  }).join('');
+  const items=getItems(); const search=document.getElementById('search').value.toLowerCase(); const cur=localStorage.getItem('tshepi_current');
+  let filtered=items.filter(it=>{ if(search && !it.title.toLowerCase().includes(search)) return false; return true; });
+  const div=document.getElementById('market'); if(filtered.length===0){ div.innerHTML='<div style="grid-column:1/3;text-align:center;padding:20px;color:#888">No items yet</div>'; return; }
+  div.innerHTML=filtered.map(it=>{ const wa='https://wa.me/27'+it.sellerPhone.slice(-9)+'?text=Hi '+encodeURIComponent(it.sellerName)+' I saw '+it.title; return '<div class="item">'+(it.image?'<img src="'+it.image+'">':'<div style="height:130px;background:#333;display:flex;align-items:center;justify-content:center">📦</div>')+'<div style="padding:8px"><b>'+it.title+'</b><br><span style="color:#ffcc00">R'+it.price+'</span><br><small>'+it.sellerName+'</small><br><a href="'+wa+'" target="_blank"><button>💬 WhatsApp</button></a>'+(cur===it.sellerPhone?'<button onclick="deleteItem(\''+it.id+'\')" class="red">Delete</button>':'')+'</div></div>'; }).join('');
 }
+function deleteItem(id){ if(!confirm('Delete?')) return; let items=getItems(); items=items.filter(i=>i.id!==id); saveItems(items); renderMarket(); if(localStorage.getItem('tshepi_role')==='admin') renderAdminItems(); }
+function renderAdminStats(){ const users=getUsers(); const items=getItems(); document.getElementById('adminStats').innerHTML='<h3>📊 Stats</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="card" style="margin:0;text-align:center"><b>'+Object.keys(users).length+'</b><br>Sellers</div><div class="card" style="margin:0;text-align:center"><b>'+items.length+'</b><br>Items</div></div>'; }
+function renderAdminSellers(){ const users=getUsers(); let html='<h3>👥 Sellers</h3>'; Object.values(users).forEach(u=>{ html+='<div class="card" style="margin:8px 0"><b>'+u.fullName+'</b> '+u.phone+' PIN:'+u.pin+'<br><button onclick="resetSellerPin(\''+u.phone+'\')" class="blue" style="width:auto;padding:5px 10px">Reset PIN</button> <button onclick="deleteSeller(\''+u.phone+'\')" class="red" style="width:auto;padding:5px 10px">Delete</button></div>'; }); document.getElementById('adminSellers').innerHTML=html||'<p>No sellers</p>'; }
+function renderAdminItems(){ const items=getItems(); let html='<h3>📦 Items</h3>'; items.forEach(it=>{ html+='<div class="card" style="margin:8px 0"><b>'+it.title+'</b> R'+it.price+' - '+it.sellerName+'<button onclick="deleteItem(\''+it.id+'\')" class="red" style="width:auto">Delete</button></div>'; }); document.getElementById('adminItems').innerHTML=html||'<p>No items</p>'; }
+function resetSellerPin(p){ const np=prompt('New PIN for '+p); if(!np||np.length<4) return; const u=getUsers(); u[p].pin=np; saveUsers(u); alert('PIN reset to '+np); renderAdminSellers(); }
+function deleteSeller(p){ if(!confirm('Delete '+p+'?')) return; const u=getUsers(); delete u[p]; saveUsers(u); let it=getItems(); it=it.filter(i=>i.sellerPhone!==p); saveItems(it); renderAdminSellers(); renderAdminStats(); }
+function resetAdminPin(){ const oldP=document.getElementById('oldAdminPin').value.trim(); const p1=document.getElementById('newAdminPin1').value.trim(); const p2=document.getElementById('newAdminPin2').value.trim(); const a=getAdmin(); if(a.pin!==oldP){ alert('Wrong old PIN, saved is '+a.pin); return; } if(p1.length<4||p1!==p2){ alert('PIN mismatch'); return; } a.pin=p1; saveAdmin(a); alert('Admin PIN now '+p1); }
+function clearAllData(){ if(!confirm('Delete all?')) return; if(prompt('Type DELETE')!=='DELETE') return; localStorage.removeItem('tshepi_users'); localStorage.removeItem('tshepi_items'); alert('Cleared, admin still 1990'); renderAdminStats(); renderAdminSellers(); renderAdminItems(); renderMarket(); }
 
-function deleteItem(id){ if(!confirm('Delete this item?')) return; let items=getItems(); items=items.filter(i=>i.id!==id); saveItems(items); renderMarket(); if(localStorage.getItem('tshepi_role')==='admin') renderAdminItems(); }
-
-function renderAdminStats(){
-  const users=getUsers(); const items=getItems();
-  document.getElementById('adminStats').innerHTML = '<h3>📊 Dashboard</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="card" style="margin:0;text-align:center"><b style="font-size:22px">'+Object.keys(users).length+'</b><br>Sellers</div><div class="card" style="margin:0;text-align:center"><b style="font-size:22px">'+items.length+'</b><br>Items</div><div class="card" style="margin:0;text-align:center"><b style="font-size:18px">R'+items.reduce((s,i)=>s+(i.price||0),0)+'</b><br>Total Value</div><div class="card" style="margin:0;text-align:center"><b>0789313670</b><br>Admin PIN 1990</div></div><p style="font-size:12px;color:#aaa">Admin PIN can only be reset in Settings tab with old PIN 1990</p>';
-}
-function renderAdminSellers(){
-  const users=getUsers(); let html='<h3>👥 All Sellers ('+Object.keys(users).length+')</h3>';
-  Object.values(users).forEach(u=>{ html+='<div class="card" style="margin:8px 0"><b>'+u.fullName+'</b> - '+u.phone+'<br><small>📍'+u.location+' | Joined '+new Date(u.joined).toLocaleDateString()+' | PIN: '+u.pin+'</small><br><div style="display:flex;gap:6px;margin-top:6px"><button onclick="resetSellerPin(\''+u.phone+'\')" class="blue" style="width:auto;padding:6px 12px;font-size:12px">Reset PIN</button><button onclick="deleteSeller(\''+u.phone+'\')" class="red" style="width:auto;padding:6px 12px;font-size:12px">Delete</button><a href="https://wa.me/27'+u.phone.slice(-9)+'" target="_blank"><button style="width:auto;padding:6px 12px;font-size:12px;background:#25D366">WhatsApp</button></a></div></div>'; });
-  if(Object.keys(users).length===0) html+='<p>No sellers</p>';
-  document.getElementById('adminSellers').innerHTML=html;
-}
-function renderAdminItems(){
-  const items=getItems(); let html='<h3>📦 All Items ('+items.length+')</h3>';
-  items.forEach(it=>{ html+='<div class="card" style="margin:8px 0;display:flex;gap:8px;align-items:center"><div style="width:50px;height:50px;background:#333;border-radius:8px;overflow:hidden;flex-shrink:0">'+(it.image?'<img src="'+it.image+'" style="width:100%;height:100%;object-fit:cover">':'📦')+'</div><div style="flex:1"><b>'+it.title+'</b> R'+it.price+'<br><small>'+it.sellerName+' ('+it.sellerPhone+')<br>'+it.category+' - '+it.condition+'</small></div><button onclick="deleteItem(\''+it.id+'\')" class="red" style="width:auto;padding:6px 10px">X</button></div>'; });
-  if(items.length===0) html+='<p>No items</p>';
-  document.getElementById('adminItems').innerHTML=html;
-}
-function resetSellerPin(phone){
-  const newPin = prompt('Enter new PIN for seller '+phone+' (4-6 digits):');
-  if(!newPin || newPin.length<4){ alert('Invalid PIN'); return; }
-  const users=getUsers(); if(!users[phone]){ alert('Not found'); return; }
-  users[phone].pin=newPin; saveUsers(users); alert('✅ PIN reset for '+users[phone].fullName+' to: '+newPin); renderAdminSellers();
-}
-function deleteSeller(phone){
-  if(!confirm('Delete seller '+phone+' and ALL their items?')) return;
-  const users=getUsers(); delete users[phone]; saveUsers(users);
-  let items=getItems(); items=items.filter(i=>i.sellerPhone!==phone); saveItems(items);
-  alert('Seller deleted'); renderAdminSellers(); renderAdminStats(); renderMarket();
-}
-function resetAdminPin(){
-  const oldPin=document.getElementById('oldAdminPin').value.trim();
-  const p1=document.getElementById('newAdminPin1').value.trim();
-  const p2=document.getElementById('newAdminPin2').value.trim();
-  const admin=getAdmin();
-  if(admin.pin !== oldPin){ alert('❌ Current PIN wrong! Current is '+admin.pin); return; }
-  if(p1.length<4){ alert('New PIN 4+ digits'); return; }
-  if(p1!==p2){ alert('PINs dont match'); return; }
-  admin.pin=p1; saveAdmin(admin); alert('✅ Admin PIN changed!\nOld: '+oldPin+'\nNew: '+p1+'\nSave it! Only resettable here.'); document.getElementById('oldAdminPin').value=''; document.getElementById('newAdminPin1').value=''; document.getElementById('newAdminPin2').value='';
-}
-function clearAllData(){
-  if(!confirm('⚠️ DELETE ALL SELLERS AND ITEMS? Cannot be undone!')) return;
-  const ok=prompt('Type DELETE to confirm:');
-  if(ok!=='DELETE'){ alert('Cancelled'); return; }
-  localStorage.removeItem('tshepi_users'); localStorage.removeItem('tshepi_items');
-  alert('All data cleared! Admin 0789313670 PIN 1990 still works'); renderAdminStats(); renderAdminSellers(); renderAdminItems(); renderMarket();
-}
-
-(function(){
-  getAdmin(); // Auto-create admin 1990
-  const cur=localStorage.getItem('tshepi_current'); const role=localStorage.getItem('tshepi_role');
-  if(role==='admin' && cur==='ADMIN_'+ADMIN_NUMBER){
-    document.getElementById('authCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN 0789313670'; renderAdminStats();
-  } else if(cur && cur.startsWith('0') || cur && cur.length===10){
-    const users=getUsers(); if(users[cur]){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[cur].fullName+' ('+cur+')'; setStatus('✅ Logged in: '+users[cur].fullName); }
-  }
-  renderMarket();
-})();
+(function(){ getAdmin(); const cur=localStorage.getItem('tshepi_current'); const role=localStorage.getItem('tshepi_role'); if(role==='admin'){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN'; renderAdminStats(); } else if(cur){ const users=getUsers(); if(users[cur]){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[cur].fullName; } } renderMarket(); })();
 </script>
 </body>
 </html>
