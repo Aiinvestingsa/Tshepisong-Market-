@@ -3,71 +3,179 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tshepisong Test</title>
+<title>Tshepisong Market Place - Buy & Sell</title>
 <style>
-body{background:#111;color:#fff;font-family:Arial;padding:15px}
-.card{background:#222;padding:15px;border-radius:12px;margin:10px 0}
-button{background:#25D366;color:#000;padding:15px;border:0;border-radius:10px;font-weight:bold;width:100%;font-size:18px;margin:8px 0}
-input{padding:14px;width:100%;border-radius:10px;border:0;margin:6px 0;background:#333;color:#fff;font-size:16px}
+body{background:#0f0f0f;color:#fff;font-family:Arial;margin:0;padding:0}
+header{background:#0a7a3b;padding:12px 16px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between}
+.card{background:#1e1e1e;padding:15px;border-radius:14px;margin:12px;border:1px solid #333}
+button{background:#25D366;color:#000;padding:12px;border:0;border-radius:10px;font-weight:bold;width:100%;margin:6px 0;font-size:16px}
+button.yellow{background:#ffcc00} button.green{background:#0a7a3b;color:#fff} button.red{background:#ff4444;color:#fff}
+input,select,textarea{padding:12px;width:100%;border-radius:10px;border:0;margin:6px 0;background:#2a2a2a;color:#fff;font-size:15px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.item{background:#252525;border-radius:12px;overflow:hidden;border:1px solid #333}
+.item img{width:100%;height:150px;object-fit:cover;background:#333}
+.hidden{display:none}
+.badge{font-size:11px;padding:3px 8px;border-radius:12px;background:#333}
 </style>
 </head>
 <body>
-<h2>🏠 Tshepisong Market - TEST MODE</h2>
-<div id="status" class="card" style="background:green;color:#fff">✅ Page Loaded - JavaScript Working!</div>
+<header><h1 style="margin:0;font-size:18px">🏠 Tshepisong Market</h1><div id="userTop" style="font-size:11px">Not logged</div></header>
 
-<div class="card">
+<div id="status" class="card" style="border-left:4px solid #25D366">✅ Ready! Register with WhatsApp + PIN + Full Name + Surname</div>
+
+<div id="authCard" class="card">
 <h3>📱 Register Seller</h3>
-<input id="phone" placeholder="WhatsApp 0761234567" value="0761234567">
-<input id="pin" placeholder="PIN" value="1234">
-<input id="name" placeholder="Full Name" value="Tshepo">
-<input id="surname" placeholder="Surname" value="Molefe">
-<button onclick="testRegister()">✅ CLICK TO REGISTER - TEST</button>
-<button onclick="alert('Button works! JS is working!')" style="background:#ffcc00">🟡 TEST BUTTON - Click me</button>
+<input id="r_phone" placeholder="WhatsApp: 0761234567" type="tel">
+<input id="r_pin" placeholder="4-digit PIN e.g. 1234" type="password" maxlength="6">
+<input id="r_name" placeholder="Full Name e.g. Tshepo">
+<input id="r_surname" placeholder="Surname e.g. Molefe">
+<select id="r_location"><option>Tshepisong Phase 1</option><option>Phase 2</option><option>Phase 3</option><option>Phase 4</option><option>Phase 5</option><option>Roodepoort</option></select>
+<button onclick="registerSeller()">✅ REGISTER & START SELLING</button>
+<hr style="border-color:#333;margin:15px 0">
+<h3>🔑 Login</h3>
+<input id="l_phone" placeholder="WhatsApp Number" type="tel">
+<input id="l_pin" placeholder="PIN" type="password">
+<button onclick="loginSeller()" class="green">LOGIN</button>
 </div>
 
-<div id="result" class="card">Result will show here</div>
+<div id="sellCard" class="card hidden">
+<h3>➕ Sell Your Stuff - New or Old</h3>
+<input id="p_title" placeholder="What? e.g. Jordan Shoes size 8">
+<select id="p_cat"><option>Clothes</option><option>Electronics</option><option>Furniture</option><option>Beauty</option><option>Kids</option><option>Cars</option><option>Other</option></select>
+<select id="p_cond"><option>New - Never used</option><option>Like New</option><option>Used - Old but working</option></select>
+<input id="p_price" type="number" placeholder="Price R e.g. 350">
+<textarea id="p_desc" placeholder="Describe condition, size..."></textarea>
+<input id="p_image" type="file" accept="image/*">
+<button onclick="sellItem()">📢 POST FOR SALE</button>
+<button onclick="logoutSeller()" style="background:#555">Logout</button>
+</div>
+
+<div class="card">
+<h3>🛒 Marketplace</h3>
+<input id="search" placeholder="Search e.g. iPhone, couch..." oninput="renderMarket()">
+<div id="market" class="grid">No items yet</div>
+</div>
 
 <script>
-function testRegister(){
+let condFilter = '';
+function setStatus(t){ document.getElementById('status').innerHTML = t; }
+function cleanPhone(p){ return p.replace(/\D/g,'').slice(-10); }
+function getUsers(){ try{ return JSON.parse(localStorage.getItem('tshepi_users')||'{}'); }catch{ return {}; } }
+function saveUsers(u){ localStorage.setItem('tshepi_users', JSON.stringify(u)); }
+function getItems(){ try{ return JSON.parse(localStorage.getItem('tshepi_items')||'[]'); }catch{ return []; } }
+function saveItems(i){ localStorage.setItem('tshepi_items', JSON.stringify(i)); }
+
+function registerSeller(){
   try{
-    document.getElementById('status').innerHTML = '🔄 Register clicked!';
-    document.getElementById('status').style.background = '#ffcc00';
-    document.getElementById('status').style.color = '#000';
+    const phone = cleanPhone(document.getElementById('r_phone').value);
+    const pin = document.getElementById('r_pin').value.trim();
+    const name = document.getElementById('r_name').value.trim();
+    const surname = document.getElementById('r_surname').value.trim();
+    const loc = document.getElementById('r_location').value;
     
-    const phone = document.getElementById('phone').value;
-    const pin = document.getElementById('pin').value;
-    const name = document.getElementById('name').value;
-    const surname = document.getElementById('surname').value;
+    if(phone.length < 10){ alert('Enter WhatsApp e.g. 0761234567'); return; }
+    if(pin.length < 4){ alert('PIN 4 digits'); return; }
+    if(!name || !surname){ alert('Enter Full Name + Surname'); return; }
     
-    if(!phone){ alert('Enter phone'); return; }
+    const users = getUsers();
+    if(users[phone]){ alert('Already registered! Login with PIN'); return; }
     
-    // Save to localStorage
-    const user = { phone, pin, name, surname, fullName: name+' '+surname };
-    localStorage.setItem('tshepi_test', JSON.stringify(user));
+    users[phone] = { phone, pin, name, surname, fullName: name+' '+surname, location: loc, joined: Date.now() };
+    saveUsers(users);
+    localStorage.setItem('tshepi_current', phone);
     
-    document.getElementById('result').innerHTML = `
-      <h3>✅ REGISTERED!</h3>
-      <p><b>Phone:</b> ${phone}</p>
-      <p><b>PIN:</b> ${pin}</p>
-      <p><b>Name:</b> ${name} ${surname}</p>
-      <p>Saved in phone!</p>
-    `;
-    document.getElementById('status').innerHTML = '✅ SUCCESS! Registered '+name+' '+surname;
-    document.getElementById('status').style.background = 'green';
-    document.getElementById('status').style.color = '#fff';
-    
-    alert('✅ Registered!\n'+name+' '+surname+'\nPhone: '+phone+'\n\nNow login works!');
-  }catch(e){
-    document.getElementById('status').innerHTML = '❌ Error: '+e.message;
-    document.getElementById('status').style.background = 'red';
-    alert('Error: '+e.message);
-  }
+    setStatus('✅ Welcome '+name+' '+surname+'! You can now sell!');
+    document.getElementById('authCard').classList.add('hidden');
+    document.getElementById('sellCard').classList.remove('hidden');
+    document.getElementById('userTop').innerText = name+' '+surname+' ('+phone+')';
+    alert('✅ Registered!\n'+name+' '+surname+'\nPhone: '+phone+'\n\nSave your PIN: '+pin);
+    renderMarket();
+  }catch(e){ alert('Error: '+e.message); setStatus('❌ Error: '+e.message); }
 }
 
-// Auto test on load
-window.onload = function(){
-  document.getElementById('status').innerHTML = '✅ JavaScript Loaded! Click TEST button!';
+function loginSeller(){
+  try{
+    const phone = cleanPhone(document.getElementById('l_phone').value);
+    const pin = document.getElementById('l_pin').value.trim();
+    const users = getUsers();
+    
+    if(!users[phone]){ alert('Not registered! Register first'); return; }
+    if(users[phone].pin !== pin){ alert('Wrong PIN'); return; }
+    
+    localStorage.setItem('tshepi_current', phone);
+    const u = users[phone];
+    setStatus('✅ Logged in: '+u.fullName+' from '+u.location);
+    document.getElementById('authCard').classList.add('hidden');
+    document.getElementById('sellCard').classList.remove('hidden');
+    document.getElementById('userTop').innerText = u.fullName+' ('+u.phone+')';
+    alert('Welcome back '+u.fullName);
+    renderMarket();
+  }catch(e){ alert('Login Error: '+e.message); }
 }
+
+function logoutSeller(){ localStorage.removeItem('tshepi_current'); location.reload(); }
+
+async function sellItem(){
+  try{
+    const cur = localStorage.getItem('tshepi_current');
+    if(!cur){ alert('Login first'); return; }
+    const users = getUsers();
+    const seller = users[cur];
+    
+    const title = document.getElementById('p_title').value.trim();
+    const cat = document.getElementById('p_cat').value;
+    const cond = document.getElementById('p_cond').value;
+    const price = parseInt(document.getElementById('p_price').value);
+    const desc = document.getElementById('p_desc').value.trim();
+    const file = document.getElementById('p_image').files[0];
+    
+    if(!title || !price){ alert('Enter title + price'); return; }
+    
+    let img = '';
+    if(file){
+      img = await new Promise(res=>{ const r=new FileReader(); r.onload=e=>res(e.target.result); r.readAsDataURL(file); });
+    }
+    
+    const items = getItems();
+    items.unshift({ id: Date.now()+'', title, category: cat, condition: cond, price, desc, sellerPhone: cur, sellerName: seller.fullName, sellerLocation: seller.location, image: img, created: Date.now() });
+    saveItems(items);
+    
+    document.getElementById('p_title').value=''; document.getElementById('p_price').value=''; document.getElementById('p_desc').value=''; document.getElementById('p_image').value='';
+    alert('✅ Posted! Buyers will see it!');
+    renderMarket();
+  }catch(e){ alert('Post Error: '+e.message); }
+}
+
+function renderMarket(){
+  const items = getItems();
+  const search = document.getElementById('search').value.toLowerCase();
+  const cur = localStorage.getItem('tshepi_current');
+  let filtered = items.filter(it=>{ if(search && !it.title.toLowerCase().includes(search)) return false; return true; });
+  
+  const div = document.getElementById('market');
+  if(filtered.length===0){ div.innerHTML = '<div style="grid-column:1/3;text-align:center;padding:20px;color:#888">No items yet.<br>Be first to sell in Tshepisong!</div>'; return; }
+  
+  div.innerHTML = filtered.map(it=>{
+    const waLink = 'https://wa.me/27'+it.sellerPhone.slice(-9)+'?text=Hi '+encodeURIComponent(it.sellerName)+' I saw your '+encodeURIComponent(it.title)+' for R'+it.price+' on Tshepisong Market';
+    return '<div class="item">'+
+      (it.image ? '<img src="'+it.image+'">' : '<div style="height:150px;background:#333;display:flex;align-items:center;justify-content:center">📦</div>')+
+      '<div style="padding:10px"><div style="font-weight:bold">'+it.title+'</div><div style="color:#ffcc00;font-weight:bold;font-size:18px">R'+it.price+'</div><div style="font-size:11px;color:#aaa">📍 '+it.sellerLocation+' • '+it.sellerName+'</div><div style="font-size:11px">'+(it.desc||'').slice(0,50)+'</div><a href="'+waLink+'" target="_blank" style="text-decoration:none"><button style="margin-top:6px">💬 WhatsApp Seller</button></a>'+(cur===it.sellerPhone ? '<button onclick="deleteItem(\''+it.id+'\')" class="red">Delete</button>' : '')+'</div></div>';
+  }).join('');
+}
+
+function deleteItem(id){ if(!confirm('Delete?')) return; let items = getItems(); items = items.filter(i=>i.id!==id); saveItems(items); renderMarket(); }
+
+(function(){
+  const cur = localStorage.getItem('tshepi_current');
+  const users = getUsers();
+  if(cur && users[cur]){
+    document.getElementById('authCard').classList.add('hidden');
+    document.getElementById('sellCard').classList.remove('hidden');
+    document.getElementById('userTop').innerText = users[cur].fullName+' ('+cur+')';
+    setStatus('✅ Logged in: '+users[cur].fullName);
+  }
+  renderMarket();
+})();
 </script>
 </body>
 </html>
