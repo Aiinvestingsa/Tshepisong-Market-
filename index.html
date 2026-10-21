@@ -1,160 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tshepisong Market Place - Buy & Sell in Kasi</title>
+<title>Tshepisong Test</title>
 <style>
-:root{--green:#0a7a3b;--yellow:#ffcc00;--dark:#111;--card:#1e1e1e}
-*{box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#0f0f0f;color:#fff;margin:0;padding:0}
-header{background:var(--green);padding:12px 16px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center}
-header h1{margin:0;font-size:20px}
-.card{background:var(--card);padding:16px;border-radius:14px;margin:12px;border:1px solid #333}
-button{background:var(--yellow);color:#000;padding:12px;border:0;border-radius:10px;font-weight:bold;width:100%;margin:6px 0;font-size:16px;cursor:pointer}
-button.green{background:var(--green);color:#fff}
-button.wa{background:#25D366}
-input,select,textarea{padding:12px;border-radius:10px;border:0;width:100%;margin:6px 0;font-size:15px;background:#2a2a2a;color:#fff}
-textarea{min-height:70px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.item{background:#252525;border-radius:12px;overflow:hidden;border:1px solid #333}
-.item img{width:100%;height:160px;object-fit:cover;background:#333}
-.item .info{padding:10px}
-.badge{font-size:11px;padding:3px 7px;border-radius:20px;background:#333}
-.badge.new{background:var(--green);color:#fff}
-.badge.used{background:#ff9800;color:#000}
-.searchbar{display:flex;gap:6px}
-.hidden{display:none}
-.tabs{display:flex;gap:6px;margin:10px 0}
-.tabs button{flex:1;padding:10px;font-size:14px;background:#333;color:#fff}
-.tabs button.active{background:var(--yellow);color:#000}
+body{background:#111;color:#fff;font-family:Arial;padding:15px}
+.card{background:#222;padding:15px;border-radius:12px;margin:10px 0}
+button{background:#25D366;color:#000;padding:15px;border:0;border-radius:10px;font-weight:bold;width:100%;font-size:18px;margin:8px 0}
+input{padding:14px;width:100%;border-radius:10px;border:0;margin:6px 0;background:#333;color:#fff;font-size:16px}
 </style>
 </head>
 <body>
-<header>
-<h1>🏠 Tshepisong Market</h1>
-<div id="userTop" style="font-size:12px">Not logged</div>
-</header>
+<h2>🏠 Tshepisong Market - TEST MODE</h2>
+<div id="status" class="card" style="background:green;color:#fff">✅ Page Loaded - JavaScript Working!</div>
 
-<div id="status" class="card" style="background:#222;border-left:4px solid #ffcc00">Welcome to Tshepisong Market Place! Register with WhatsApp to start selling.</div>
-
-<!-- AUTH -->
-<div id="authCard" class="card">
-<div class="tabs">
-<button id="tabReg" class="active" onclick="showAuth('reg')">Register Seller</button>
-<button id="tabLogin" onclick="showAuth('login')">Login</button>
-</div>
-
-<div id="regBox">
-<h3>📱 Register as Seller</h3>
-<input id="r_phone" placeholder="WhatsApp Number: 0761234567" type="tel">
-<input id="r_pin" placeholder="Create 4-digit PIN" type="password" maxlength="6" inputmode="numeric">
-<input id="r_name" placeholder="Full Name e.g. Thabo">
-<input id="r_surname" placeholder="Surname e.g. Molefe">
-<select id="r_location">
-<option>Tshepisong Phase 1</option>
-<option>Tshepisong Phase 2</option>
-<option>Tshepisong Phase 3</option>
-<option>Tshepisong Phase 4</option>
-<option>Tshepisong Phase 5</option>
-<option>Roodepoort</option>
-<option>Other</option>
-</select>
-<button onclick="registerSeller()" class="wa">✅ REGISTER & START SELLING</button>
-</div>
-
-<div id="loginBox" class="hidden">
-<h3>🔑 Seller Login</h3>
-<input id="l_phone" placeholder="WhatsApp Number" type="tel">
-<input id="l_pin" placeholder="Your PIN" type="password">
-<button onclick="loginSeller()" class="green">LOGIN</button>
-</div>
-</div>
-
-<!-- SELL -->
-<div id="sellCard" class="card hidden">
-<h3>➕ Sell Your Stuff - New or Old</h3>
-<input id="p_title" placeholder="What are you selling? e.g. Jordan Shoes size 8">
-<select id="p_category">
-<option value="Clothes">👕 Clothes & Shoes</option>
-<option value="Electronics">📱 Electronics (Phones, TV)</option>
-<option value="Furniture">🛋️ Furniture & Appliances</option>
-<option value="Beauty">💄 Beauty & Hair</option>
-<option value="Kids">🧸 Kids & Baby</option>
-<option value="Cars">🚗 Cars & Parts</option>
-<option value="Other">📦 Other</option>
-</select>
-<select id="p_condition">
-<option value="New">✨ New - Never used</option>
-<option value="Like New">👍 Like New - Used few times</option>
-<option value="Used">♻️ Used - Old but working</option>
-</select>
-<input id="p_price" type="number" placeholder="Price R e.g. 350">
-<textarea id="p_desc" placeholder="Describe condition, size, reason for selling..."></textarea>
-<input id="p_image" type="file" accept="image/*">
-<small style="color:#aaa">Take photo of item - will be saved</small>
-<button onclick="sellItem()" class="wa">📢 POST FOR SALE</button>
-</div>
-
-<!-- MARKETPLACE -->
 <div class="card">
-<h3>🛒 Marketplace - Tshepisong</h3>
-<div class="searchbar">
-<input id="search" placeholder="Search e.g. iPhone, couch..." oninput="renderMarket()">
-<select id="filterCat" onchange="renderMarket()" style="width:40%">
-<option value="">All Categories</option>
-<option value="Clothes">Clothes</option>
-<option value="Electronics">Electronics</option>
-<option value="Furniture">Furniture</option>
-<option value="Beauty">Beauty</option>
-<option value="Kids">Kids</option>
-<option value="Cars">Cars</option>
-</select>
+<h3>📱 Register Seller</h3>
+<input id="phone" placeholder="WhatsApp 0761234567" value="0761234567">
+<input id="pin" placeholder="PIN" value="1234">
+<input id="name" placeholder="Full Name" value="Tshepo">
+<input id="surname" placeholder="Surname" value="Molefe">
+<button onclick="testRegister()">✅ CLICK TO REGISTER - TEST</button>
+<button onclick="alert('Button works! JS is working!')" style="background:#ffcc00">🟡 TEST BUTTON - Click me</button>
 </div>
-<div class="tabs">
-<button class="active" id="fAll" onclick="filterCond('')">All</button>
-<button id="fNew" onclick="filterCond('New')">New</button>
-<button id="fUsed" onclick="filterCond('Used')">Old</button>
-<button id="fMy" onclick="filterCond('my')">My Items</button>
-</div>
-<div id="market" class="grid">Loading...</div>
-</div>
+
+<div id="result" class="card">Result will show here</div>
 
 <script>
-// STORAGE
-const DB_USERS = 'tshepi_users';
-const DB_ITEMS = 'tshepi_items';
-const DB_CUR = 'tshepi_current';
-let condFilter = '';
-
-function getUsers(){ return JSON.parse(localStorage.getItem(DB_USERS)||'{}'); }
-function saveUsers(u){ localStorage.setItem(DB_USERS, JSON.stringify(u)); }
-function getItems(){ return JSON.parse(localStorage.getItem(DB_ITEMS)||'[]'); }
-function saveItems(i){ localStorage.setItem(DB_ITEMS, JSON.stringify(i)); }
-function setStatus(t){ document.getElementById('status').innerHTML = t; }
-function cleanPhone(p){ return p.replace(/\D/g,'').slice(-10); }
-
-function showAuth(which){
-  document.getElementById('regBox').className = which==='reg'?'':'hidden';
-  document.getElementById('loginBox').className = which==='login'?'':'hidden';
-  document.getElementById('tabReg').className = which==='reg'?'active':'';
-  document.getElementById('tabLogin').className = which==='login'?'active':'';
+function testRegister(){
+  try{
+    document.getElementById('status').innerHTML = '🔄 Register clicked!';
+    document.getElementById('status').style.background = '#ffcc00';
+    document.getElementById('status').style.color = '#000';
+    
+    const phone = document.getElementById('phone').value;
+    const pin = document.getElementById('pin').value;
+    const name = document.getElementById('name').value;
+    const surname = document.getElementById('surname').value;
+    
+    if(!phone){ alert('Enter phone'); return; }
+    
+    // Save to localStorage
+    const user = { phone, pin, name, surname, fullName: name+' '+surname };
+    localStorage.setItem('tshepi_test', JSON.stringify(user));
+    
+    document.getElementById('result').innerHTML = `
+      <h3>✅ REGISTERED!</h3>
+      <p><b>Phone:</b> ${phone}</p>
+      <p><b>PIN:</b> ${pin}</p>
+      <p><b>Name:</b> ${name} ${surname}</p>
+      <p>Saved in phone!</p>
+    `;
+    document.getElementById('status').innerHTML = '✅ SUCCESS! Registered '+name+' '+surname;
+    document.getElementById('status').style.background = 'green';
+    document.getElementById('status').style.color = '#fff';
+    
+    alert('✅ Registered!\n'+name+' '+surname+'\nPhone: '+phone+'\n\nNow login works!');
+  }catch(e){
+    document.getElementById('status').innerHTML = '❌ Error: '+e.message;
+    document.getElementById('status').style.background = 'red';
+    alert('Error: '+e.message);
+  }
 }
 
-function registerSeller(){
-  const phone = cleanPhone(document.getElementById('r_phone').value);
-  const pin = document.getElementById('r_pin').value.trim();
-  const name = document.getElementById('r_name').value.trim();
-  const surname = document.getElementById('r_surname').value.trim();
-  const loc = document.getElementById('r_location').value;
-  
-  if(phone.length<10){ alert('Enter valid WhatsApp e.g. 0761234567'); return; }
-  if(pin.length<4){ alert('PIN must be 4 digits'); return; }
-  if(!name || !surname){ alert('Enter Full Name and Surname'); return; }
-  
-  const users = getUsers();
-  if(users[phone]){ alert('This WhatsApp already registered! Login.'); showAuth('login'); return; }
-  
-  users[phone] = { phone, pin, name, surname, fullName: name+' '+surname, location: loc, joined: Date.now(), itemsSold: 0 };
-  saveUsers(users);
-  localStorage.setItem(DB_CUR
+// Auto test on load
+window.onload = function(){
+  document.getElementById('status').innerHTML = '✅ JavaScript Loaded! Click TEST button!';
+}
+</script>
+</body>
+</html>
