@@ -8,111 +8,95 @@
 <style>
 body{background:#080a0f;color:#fff;font-family:'Rajdhani',Arial;margin:0}
 header{background:linear-gradient(90deg,#000 0%,#0a1a2e 50%,#000 100%);padding:14px 16px;position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #00f2ff;box-shadow:0 0 20px rgba(0,242,255,0.3)}
-.logo{font-family:'Orbitron',monospace;font-weight:900;font-size:14px;line-height:1.1;letter-spacing:1px;text-transform:uppercase}
+.logo{font-family:'Orbitron',monospace;font-weight:900;font-size:13px;line-height:1.1;letter-spacing:1px}
 .logo .line1{color:#fff;text-shadow:0 0 10px #00f2ff;display:block}
-.logo .line2{background:linear-gradient(90deg,#00f2ff,#ff00ff,#ffcc00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;font-size:11px;letter-spacing:3px;margin-top:2px}
-.digital-badge{font-family:'Orbitron',monospace;font-size:8px;background:linear-gradient(90deg,#00f2ff,#7000ff);padding:3px 8px;border-radius:20px;color:#fff;box-shadow:0 0 10px #00f2ff}
-.card{background:#151a25;padding:15px;border-radius:14px;margin:12px;border:1px solid #1e2a4a}
-button{background:#00f2ff;color:#000;padding:10px;border:0;border-radius:10px;font-weight:bold;width:100%;margin:5px 0;font-size:13px;font-family:'Orbitron',monospace;cursor:pointer}
-button.yellow{background:linear-gradient(90deg,#ffcc00,#ffaa00)} button.green{background:linear-gradient(90deg,#0a7a3b,#00ff88)} button.red{background:#ff2a6d;color:#fff} button.blue{background:#7000ff;color:#fff} button.orange{background:#ff6b00;color:#fff} button.purple{background:linear-gradient(90deg,#7000ff,#ff00ff);color:#fff}
+.logo .line2{background:linear-gradient(90deg,#00f2ff,#ff00ff,#ffcc00);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;font-size:10px;letter-spacing:3px;margin-top:2px}
+.digital-badge{font-family:'Orbitron',monospace;font-size:8px;background:linear-gradient(90deg,#00f2ff,#7000ff);padding:3px 8px;border-radius:20px;color:#fff}
+.card{background:#151a25;padding:14px;border-radius:14px;margin:11px;border:1px solid #1e2a4a}
+button{padding:10px;border:0;border-radius:10px;font-weight:bold;width:100%;margin:5px 0;font-size:13px;font-family:'Orbitron',monospace;cursor:pointer}
+.btn-cyan{background:#00f2ff;color:#000;box-shadow:0 0 15px rgba(0,242,255,0.3)} 
+.btn-yellow{background:linear-gradient(90deg,#ffcc00,#ffaa00);color:#000} 
+.btn-green{background:linear-gradient(90deg,#0a7a3b,#00ff88);color:#000} 
+.btn-red{background:#ff2a6d;color:#fff} .btn-blue{background:#7000ff;color:#fff} .btn-purple{background:linear-gradient(90deg,#7000ff,#ff00ff);color:#fff} .btn-dark{background:#1e2a4a;color:#fff}
 input,select,textarea{padding:11px;width:100%;border-radius:10px;border:1px solid #1e2a4a;margin:5px 0;background:#0d111c;color:#fff;font-size:14px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .item{background:#0d111c;border-radius:12px;overflow:hidden;border:1px solid #1e2a4a;position:relative}
 .item img{width:100%;height:130px;object-fit:cover}
-.item .badge{position:absolute;top:6px;left:6px;font-size:8px;padding:3px 6px;border-radius:10px;font-family:'Orbitron',monospace;font-weight:bold}
-.badge-pending{background:#ffaa00;color:#000} .badge-approved{background:#00ff88;color:#000} .badge-rejected{background:#ff2a6d;color:#fff} .badge-top{background:linear-gradient(90deg,#ffcc00,#ff6b00);color:#000} .badge-trending{background:linear-gradient(90deg,#ff00ff,#7000ff);color:#fff}
+.badge{position:absolute;top:6px;left:6px;font-size:7px;padding:3px 6px;border-radius:10px;font-family:'Orbitron',monospace;font-weight:bold;z-index:2}
+.badge-pending{background:#ffaa00;color:#000;animation:blink 1s infinite} .badge-approved{background:#00ff88;color:#000} .badge-rejected{background:#ff2a6d;color:#fff} .badge-top{background:linear-gradient(90deg,#ffcc00,#ff6b00);color:#000} .badge-trend{background:linear-gradient(90deg,#ff00ff,#7000ff);color:#fff}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.6}}
 .hidden{display:none}
-.tabs{display:flex;gap:5px;margin:8px 0;flex-wrap:wrap}
-.tabs button{flex:1;padding:8px;font-size:10px;background:#1e2a4a;color:#fff;min-width:60px}
+.tabs{display:flex;gap:4px;margin:8px 0;flex-wrap:wrap}
+.tabs button{flex:1;padding:8px;font-size:9px;background:#1e2a4a;color:#fff;min-width:50px}
 .tabs button.active{background:linear-gradient(90deg,#00f2ff,#7000ff);color:#fff}
 .admin-bg{background:#1a1030!important;border:2px solid #ff00ff!important}
-.section-title{font-family:'Orbitron',monospace;font-size:13px;margin:15px 12px 5px;color:#00f2ff;display:flex;justify-content:space-between;align-items:center}
-.pending-notice{background:linear-gradient(90deg,#ffaa00,#ff6b00);color:#000;padding:8px 12px;border-radius:8px;font-size:11px;font-weight:bold;margin:8px 0;font-family:'Orbitron',monospace}
+.pending-box{background:linear-gradient(90deg,#ffaa00,#ff6b00);color:#000;padding:10px;border-radius:10px;font-family:'Orbitron',monospace;font-size:10px;font-weight:bold;margin:8px 0;text-align:center}
+.whatsapp-admin-btn{background:linear-gradient(90deg,#25D366,#128C7E)!important;color:#fff!important;box-shadow:0 0 15px rgba(37,211,102,0.4)!important}
 </style>
 </head>
 <body>
-<header><div class="logo"><span class="line1">TSHEPISONG MARKET PLACE</span><span class="line2">DIGITAL AI</span></div><div style="text-align:right"><div id="userTop" style="font-size:9px;font-family:'Orbitron';opacity:0.7">OFFLINE</div><div class="digital-badge">● AI POWERED</div></div></header>
+<header><div class="logo"><span class="line1">TSHEPISONG MARKET PLACE</span><span class="line2">DIGITAL AI</span></div><div style="text-align:right"><div id="userTop" style="font-size:8px;font-family:'Orbitron';opacity:0.7">OFFLINE</div><div class="digital-badge">● AI POWERED</div></div></header>
 
-<div id="status" class="card" style="border-left:4px solid #00f2ff;font-family:'Orbitron';font-size:10px">⚡ DIGITAL AI READY | ADMIN 0789313670 PIN 1990 | Approval System ON</div>
+<div id="status" class="card" style="border-left:4px solid #00f2ff;font-family:'Orbitron';font-size:9px">⚡ ADMIN CONTROL: 0789313670 PIN 1990 | All items need approval before live</div>
 
 <div id="authCard" class="card">
 <div class="tabs"><button id="tabSeller" class="active" onclick="showTab('seller')">👥 SELLER</button><button id="tabAdmin" onclick="showTab('admin')">🔐 ADMIN AI</button></div>
 <div id="sellerBox">
-<h3>📱 SELLER REGISTER</h3><input id="r_phone" placeholder="WhatsApp: 0761234567" type="tel"><input id="r_pin" placeholder="PIN 4-digit" type="password"><input id="r_name" placeholder="Full Name"><input id="r_surname" placeholder="Surname"><select id="r_location"><option>Phase 1</option><option>Phase 2</option><option>Phase 3</option><option>Phase 4</option><option>Phase 5</option></select>
-<button onclick="registerSeller()">⚡ REGISTER</button>
-<hr><h3>🔑 LOGIN</h3><input id="l_phone" placeholder="WhatsApp" type="tel"><input id="l_pin" placeholder="PIN" type="password"><button onclick="loginSeller()" class="green">LOGIN SELLER</button>
+<h3 style="color:#00f2ff;font-family:Orbitron;font-size:12px">📱 SELLER REGISTER</h3><input id="r_phone" placeholder="WhatsApp 0761234567" type="tel"><input id="r_pin" placeholder="PIN 4-digit" type="password"><input id="r_name" placeholder="Full Name"><input id="r_surname" placeholder="Surname"><select id="r_location"><option>Phase 1</option><option>Phase 2</option><option>Phase 3</option><option>Phase 4</option><option>Phase 5</option></select><button onclick="registerSeller()" class="btn-cyan">⚡ REGISTER</button>
+<hr style="border-color:#1e2a4a"><h3 style="color:#00f2ff;font-family:Orbitron;font-size:12px">🔑 LOGIN</h3><input id="l_phone" placeholder="WhatsApp" type="tel"><input id="l_pin" placeholder="PIN" type="password"><button onclick="loginSeller()" class="btn-green">LOGIN</button>
 </div>
-<div id="adminBox" class="hidden admin-bg"><h3>🔐 ADMIN AI - 0789313670</h3><input id="a_phone" type="tel" value="0789313670" readonly><input id="a_pin" placeholder="PIN 1990" type="password" value="1990"><button onclick="loginAdmin()" class="yellow">ACCESS ADMIN AI</button></div>
+<div id="adminBox" class="hidden admin-bg"><h3 style="font-family:Orbitron;font-size:12px">🔐 ADMIN - 0789313670</h3><input id="a_phone" value="0789313670" readonly><input id="a_pin" value="1990" type="password"><button onclick="loginAdmin()" class="btn-yellow">ACCESS ADMIN AI - 1990</button></div>
 </div>
 
 <div id="sellCard" class="card hidden">
-<h3>➕ POST ITEM - Goes to Admin for Approval</h3>
-<input id="p_title" placeholder="What you selling?"><select id="p_cat"><option>Clothes</option><option>Electronics</option><option>Furniture</option><option>Beauty</option><option>Kids</option><option>Cars</option><option>Other</option></select><select id="p_cond"><option>New</option><option>Like New</option><option>Used</option></select><input id="p_price" type="number" placeholder="Price R"><textarea id="p_desc" placeholder="Describe..."></textarea><input id="p_image" type="file" accept="image/*">
-<button onclick="sellItem()">⚡ SEND FOR ADMIN APPROVAL</button>
-<div class="pending-notice">⏳ Your item will show in marketplace AFTER admin approves it (0789313670)</div>
-<button onclick="logout()" style="background:#1e2a4a">Logout</button>
-<h4 style="margin-top:15px">📦 My Items Status</h4><div id="myItems"></div>
+<h3 style="font-family:Orbitron;font-size:12px">➕ POST ITEM → Admin Approval Required</h3>
+<input id="p_title" placeholder="Product e.g. Jordan Shoes size 8"><select id="p_cat"><option>Clothes</option><option>Electronics</option><option>Furniture</option><option>Beauty</option><option>Kids</option><option>Cars</option><option>Other</option></select><select id="p_cond"><option>New</option><option>Like New</option><option>Used</option></select><input id="p_price" type="number" placeholder="Price R"><textarea id="p_desc" placeholder="Describe condition, size..."></textarea><input id="p_image" type="file" accept="image/*">
+<button onclick="sellItem()" class="btn-cyan">⚡ SEND TO ADMIN FOR APPROVAL</button>
+<div class="pending-box">⏳ ITEM WON'T SHOW LIVE UNTIL ADMIN 0789313670 APPROVES IT!</div>
+<button onclick="logout()" class="btn-dark">Logout</button>
+
+<h4 style="font-family:Orbitron;font-size:11px;margin-top:15px;color:#ffaa00">📦 MY ITEMS - Approval Status</h4><div id="myItems"></div>
 </div>
 
 <div id="adminPanel" class="card hidden admin-bg">
-<h2 style="font-family:'Orbitron';font-size:13px">👑 ADMIN AI CONTROL - 0789313670</h2>
-<div class="tabs"><button id="atPending" class="active" onclick="showAdminTab('pending')">⏳ PENDING (<span id="pendingCount">0</span>)</button><button id="atApproved" onclick="showAdminTab('approved')">✅ APPROVED</button><button id="atTop" onclick="showAdminTab('top')">🔥 TOP SELLING</button><button id="atTrend" onclick="showAdminTab('trend')">📈 TRENDING</button><button id="atSellers" onclick="showAdminTab('sellers')">👥 SELLERS</button><button id="atSettings" onclick="showAdminTab('settings')">⚙️ CONFIG</button></div>
-
-<div id="adminPending"></div>
-<div id="adminApproved" class="hidden"></div>
-<div id="adminTop" class="hidden"></div>
-<div id="adminTrend" class="hidden"></div>
-<div id="adminSellers" class="hidden"></div>
-<div id="adminSettings" class="hidden">
-<h3>🔐 Reset Admin PIN</h3><input id="oldAdminPin" placeholder="Current 1990" type="password"><input id="newAdminPin1" placeholder="New PIN" type="password"><input id="newAdminPin2" placeholder="Confirm" type="password"><button onclick="resetAdminPin()" class="yellow">RESET PIN</button><hr><button onclick="clearAllData()" class="red">WIPE ALL</button><button onclick="logout()" style="background:#1e2a4a">Logout</button>
+<h2 style="font-family:Orbitron;font-size:12px">👑 ADMIN CONTROL PANEL - 0789313670 | PIN 1990</h2>
+<p style="font-size:10px;font-family:Orbitron;color:#00f2ff">All seller items come here for APPROVAL / REJECT before going live</p>
+<div class="tabs">
+<button id="atPending" class="active" onclick="showAdminTab('pending')">⏳ PENDING (<span id="pendingCount">0</span>)</button>
+<button id="atApproved" onclick="showAdminTab('approved')">✅ APPROVED</button>
+<button id="atRejected" onclick="showAdminTab('rejected')">❌ REJECTED</button>
+<button id="atTop" onclick="showAdminTab('top')">🔥 TOP</button>
+<button id="atTrend" onclick="showAdminTab('trend')">📈 TREND</button>
+<button id="atSellers" onclick="showAdminTab('sellers')">👥 SELLERS</button>
 </div>
+<div id="adminPending"></div><div id="adminApproved" class="hidden"></div><div id="adminRejected" class="hidden"></div><div id="adminTop" class="hidden"></div><div id="adminTrend" class="hidden"></div><div id="adminSellers" class="hidden"></div>
 </div>
 
-<!-- MARKETPLACE WITH SECTIONS -->
-<div id="marketplace">
-<div class="section-title"><span>🔥 TOP SELLING - Admin Picks</span><span style="font-size:8px;background:#ffcc00;color:#000;padding:2px 6px;border-radius:10px">AI CURATED</span></div>
-<div id="topSellingGrid" class="grid" style="margin:0 12px"></div>
-
-<div class="section-title"><span>📈 TRENDING NOW</span><span style="font-size:8px;background:#ff00ff;color:#fff;padding:2px 6px;border-radius:10px">HOT</span></div>
-<div id="trendingGrid" class="grid" style="margin:0 12px"></div>
-
-<div class="section-title"><span>🛒 ALL APPROVED ITEMS</span><span style="font-size:8px;opacity:0.6" id="allCount">0 items</span></div>
-<div class="card" style="margin-top:5px"><input id="search" placeholder="Search approved items..." oninput="renderMarket()"><div id="market" class="grid" style="margin-top:10px"></div></div>
-</div>
+<!-- LIVE MARKETPLACE - ONLY APPROVED -->
+<div class="card" style="background:#080a0f;border-color:#00f2ff"><div style="font-family:Orbitron;font-size:12px;color:#00f2ff">🔥 TOP SELLING - Admin Selected</div><div id="topSellingGrid" class="grid" style="margin-top:8px"></div></div>
+<div class="card" style="background:#080a0f;border-color:#ff00ff"><div style="font-family:Orbitron;font-size:12px;color:#ff00ff">📈 TRENDING NOW - Admin Selected</div><div id="trendingGrid" class="grid" style="margin-top:8px"></div></div>
+<div class="card"><div style="font-family:Orbitron;font-size:12px;color:#00f2ff;display:flex;justify-content:space-between"><span>🛒 LIVE MARKET - Approved Only</span><span id="allCount" style="font-size:9px;opacity:0.6"></span></div><input id="search" placeholder="Search live items..." oninput="renderMarket()"><div id="market" class="grid" style="margin-top:10px"></div><p style="font-size:9px;opacity:0.5;font-family:Orbitron;margin-top:10px">Only admin-approved items show here. Pending items are hidden until admin approves.</p></div>
 
 <script>
-const ADMIN_NUMBER='0789313670'; const ADMIN_PIN='1990';
+const ADMIN_NUMBER='0789313670'; const ADMIN_WA='27789313670'; const ADMIN_PIN='1990';
 function cleanPhone(p){ return p.replace(/\D/g,'').slice(-10); }
 function getUsers(){ try{ return JSON.parse(localStorage.getItem('tshepi_users')||'{}'); }catch{ return {}; } }
 function saveUsers(u){ localStorage.setItem('tshepi_users', JSON.stringify(u)); }
-function getItems(){ try{ return JSON.parse(localStorage.getItem('tshepi_items_v2')||localStorage.getItem('tshepi_items')||'[]'); }catch{ return []; } }
-function saveItems(i){ localStorage.setItem('tshepi_items_v2', JSON.stringify(i)); localStorage.setItem('tshepi_items', JSON.stringify(i)); }
+function getItems(){ try{ return JSON.parse(localStorage.getItem('tshepi_items_v3')||localStorage.getItem('tshepi_items_v2')||localStorage.getItem('tshepi_items')||'[]'); }catch{ return []; } }
+function saveItems(i){ localStorage.setItem('tshepi_items_v3', JSON.stringify(i)); localStorage.setItem('tshepi_items', JSON.stringify(i)); }
 function getAdmin(){ try{ let a=JSON.parse(localStorage.getItem('tshepi_admin')||'null'); if(!a){ a={phone:ADMIN_NUMBER,pin:ADMIN_PIN}; localStorage.setItem('tshepi_admin',JSON.stringify(a)); } return a; }catch{ let a={phone:ADMIN_NUMBER,pin:ADMIN_PIN}; localStorage.setItem('tshepi_admin',JSON.stringify(a)); return a; } }
 function saveAdmin(a){ localStorage.setItem('tshepi_admin',JSON.stringify(a)); }
 
 function showTab(t){ document.getElementById('sellerBox').className=t==='seller'?'':'hidden'; document.getElementById('adminBox').className=t==='admin'?'admin-bg':'hidden admin-bg'; document.getElementById('tabSeller').className=t==='seller'?'active':''; document.getElementById('tabAdmin').className=t==='admin'?'active':''; }
 function showAdminTab(t){
-  ['pending','approved','top','trend','sellers','settings'].forEach(x=>{
-    const el=document.getElementById('admin'+x.charAt(0).toUpperCase()+x.slice(1));
-    if(el) el.className = x===t ? '' : 'hidden';
-  });
-  document.querySelectorAll('#adminPanel .tabs button').forEach(b=>b.classList.remove('active'));
-  document.getElementById('at'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('active');
-  if(t==='pending') renderAdminPending();
-  if(t==='approved') renderAdminApproved();
-  if(t==='top') renderAdminTop();
-  if(t==='trend') renderAdminTrend();
-  if(t==='sellers') renderAdminSellers();
+  ['pending','approved','rejected','top','trend','sellers'].forEach(x=>{ const el=document.getElementById('admin'+x.charAt(0).toUpperCase()+x.slice(1)); if(el) el.className=x===t?'':'hidden'; });
+  document.querySelectorAll('#adminPanel .tabs button').forEach(b=>b.classList.remove('active')); document.getElementById('at'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('active');
+  if(t==='pending') renderAdminPending(); if(t==='approved') renderAdminApproved(); if(t==='rejected') renderAdminRejected(); if(t==='top') renderAdminTop(); if(t==='trend') renderAdminTrend(); if(t==='sellers') renderAdminSellers();
 }
 
-function loginAdmin(){
-  const phone=cleanPhone(document.getElementById('a_phone').value); const pin=document.getElementById('a_pin').value.trim(); const admin=getAdmin();
-  if(phone!==ADMIN_NUMBER||pin!==admin.pin){ alert('Wrong! Admin 0789313670 PIN '+admin.pin); return; }
-  localStorage.setItem('tshepi_current','ADMIN_'+ADMIN_NUMBER); localStorage.setItem('tshepi_role','admin');
-  document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN AI'; renderAdminPending();
-}
-function registerSeller(){ const phone=cleanPhone(document.getElementById('r_phone').value); const pin=document.getElementById('r_pin').value.trim(); const name=document.getElementById('r_name').value.trim(); const surname=document.getElementById('r_surname').value.trim(); const loc=document.getElementById('r_location').value; if(phone===ADMIN_NUMBER){ showTab('admin'); return; } if(phone.length<10||pin.length<4||!name||!surname){ alert('Fill all'); return; } const users=getUsers(); if(users[phone]){ alert('Already registered'); return; } users[phone]={phone,pin,name,surname,fullName:name+' '+surname,location:loc,joined:Date.now()}; saveUsers(users); localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=name+' '+surname; renderMyItems(); renderMarket(); }
-function loginSeller(){ const phone=cleanPhone(document.getElementById('l_phone').value); const pin=document.getElementById('l_pin').value.trim(); if(phone===ADMIN_NUMBER){ showTab('admin'); return; } const users=getUsers(); if(!users[phone]||users[phone].pin!==pin){ alert('Wrong login'); return; } localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[phone].fullName; renderMyItems(); renderMarket(); }
+function loginAdmin(){ const phone=cleanPhone(document.getElementById('a_phone').value); const pin=document.getElementById('a_pin').value.trim(); const admin=getAdmin(); if(phone!==ADMIN_NUMBER||pin!==admin.pin){ alert('Wrong admin'); return; } localStorage.setItem('tshepi_current','ADMIN_'+ADMIN_NUMBER); localStorage.setItem('tshepi_role','admin'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN'; renderAdminPending(); }
+function registerSeller(){ const phone=cleanPhone(document.getElementById('r_phone').value); const pin=document.getElementById('r_pin').value.trim(); const name=document.getElementById('r_name').value.trim(); const surname=document.getElementById('r_surname').value.trim(); const loc=document.getElementById('r_location').value; if(phone===ADMIN_NUMBER){ showTab('admin'); return; } if(phone.length<10||pin.length<4||!name||!surname){ alert('Fill all'); return; } const users=getUsers(); if(users[phone]){ alert('Registered'); return; } users[phone]={phone,pin,name,surname,fullName:name+' '+surname,location:loc,joined:Date.now()}; saveUsers(users); localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=name+' '+surname; renderMyItems(); }
+function loginSeller(){ const phone=cleanPhone(document.getElementById('l_phone').value); const pin=document.getElementById('l_pin').value.trim(); if(phone===ADMIN_NUMBER){ showTab('admin'); return; } const users=getUsers(); if(!users[phone]||users[phone].pin!==pin){ alert('Wrong'); return; } localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[phone].fullName; renderMyItems(); }
 function logout(){ localStorage.removeItem('tshepi_current'); localStorage.removeItem('tshepi_role'); location.reload(); }
 
 async function sellItem(){
@@ -124,77 +108,74 @@ async function sellItem(){
   items.unshift({id:Date.now()+'',title,category:cat,condition:cond,price,desc,sellerPhone:cur,sellerName:seller.fullName,sellerLocation:seller.location,image:img,status:'pending',isTop:false,isTrending:false,created:Date.now()});
   saveItems(items);
   document.getElementById('p_title').value=''; document.getElementById('p_price').value=''; document.getElementById('p_desc').value=''; document.getElementById('p_image').value='';
-  alert('⏳ Sent to Admin 0789313670 for approval!\nYour item will appear after admin approves.'); renderMyItems(); renderMarket();
+  alert('⏳ Item sent to ADMIN 0789313670 for approval!\n\n1. Your item is PENDING\n2. Click "WhatsApp Admin for Approval" below\n3. Admin will approve → item goes LIVE');
+  renderMyItems();
 }
 
 function renderMyItems(){
   const cur=localStorage.getItem('tshepi_current'); if(!cur||cur.startsWith('ADMIN')) return;
-  const items=getItems().filter(i=>i.sellerPhone===cur);
+  const items=getItems().filter(i=>i.sellerPhone===cur).sort((a,b)=>b.created-a.created);
   const div=document.getElementById('myItems'); if(!div) return;
-  if(!items.length){ div.innerHTML='<small style="opacity:0.6">No items yet</small>'; return; }
-  div.innerHTML=items.map(it=>'<div style="display:flex;gap:8px;align-items:center;background:#0d111c;padding:8px;border-radius:8px;margin:5px 0;border:1px solid #1e2a4a"><div style="width:40px;height:40px;background:#333;border-radius:6px;overflow:hidden">'+(it.image?'<img src="'+it.image+'" style="width:100%;height:100%;object-fit:cover">':'📦')+'</div><div style="flex:1"><b style="font-size:12px">'+it.title+'</b> R'+it.price+'<br><span class="badge badge-'+it.status+'" style="position:static;font-size:8px">'+it.status.toUpperCase()+'</span>'+(it.isTop?'<span class="badge badge-top" style="position:static">TOP</span>':'')+(it.isTrending?'<span class="badge badge-trending" style="position:static">TRENDING</span>':'')+'</div></div>').join('');
+  if(!items.length){ div.innerHTML='<small style="opacity:0.6">No items posted yet</small>'; return; }
+  div.innerHTML=items.map(it=>{
+    const waAdminMsg = `Hi Admin (0789313670) 👋%0A%0APlease approve my item:%0A%0A📦 *${encodeURIComponent(it.title)}*%0A💰 Price: R${it.price}%0A📍 ${it.sellerLocation}%0A👤 ${it.sellerName} (${it.sellerPhone})%0A📝 ${encodeURIComponent(it.desc||'')}%0A%0AStatus: ${it.status.toUpperCase()}%0AItem ID: ${it.id}%0A%0AThank you!`;
+    const waAdminLink = `https://wa.me/${ADMIN_WA}?text=${waAdminMsg}`;
+    let statusColor = it.status==='pending'?'#ffaa00':it.status==='approved'?'#00ff88':'#ff2a6d';
+    let statusText = it.status==='pending'?'⏳ PENDING - Waiting Admin Approval':it.status==='approved'?'✅ APPROVED - LIVE in Market':'❌ REJECTED by Admin';
+    return `<div style="background:#0d111c;padding:10px;border-radius:10px;margin:8px 0;border:1px solid ${statusColor};border-left:4px solid ${statusColor}">
+      <div style="display:flex;gap:8px"><div style="width:50px;height:50px;background:#333;border-radius:8px;overflow:hidden;flex-shrink:0">${it.image?`<img src="${it.image}" style="width:100%;height:100%;object-fit:cover">`:'📦'}</div>
+      <div style="flex:1"><b style="font-size:12px">${it.title}</b> R${it.price}<br><small style="color:${statusColor};font-family:Orbitron;font-weight:bold;font-size:9px">${statusText}</small><br>${it.isTop?'<span class="badge badge-top" style="position:static">🔥 TOP</span>':''} ${it.isTrending?'<span class="badge badge-trend" style="position:static">📈 TRENDING</span>':''}</div></div>
+      ${it.status==='pending'?`<a href="${waAdminLink}" target="_blank" style="text-decoration:none"><button class="whatsapp-admin-btn" style="margin-top:8px;font-size:11px">💬 WHATSAPP ADMIN (0789313670) FOR APPROVAL</button></a><p style="font-size:9px;opacity:0.6;margin:4px 0">Click to send WhatsApp to admin with item details - admin will approve faster!</p>`:`${it.status==='approved'?'<small style="color:#00ff88;font-size:10px">✅ Live in marketplace - buyers can see it!</small>':'<small style="color:#ff2a6d;font-size:10px">❌ Rejected - contact admin for reason</small>'}`}
+      <button onclick="deleteItem('${it.id}')" class="btn-dark" style="font-size:10px;padding:6px;margin-top:5px">Delete Item</button>
+    </div>`;
+  }).join('');
 }
 
-// MARKETPLACE - ONLY APPROVED
 function renderMarket(){
   const items=getItems(); const search=document.getElementById('search').value.toLowerCase();
   const approved=items.filter(i=>i.status==='approved');
-  const top=approved.filter(i=>i.isTop);
-  const trending=approved.filter(i=>i.isTrending);
-  let filtered=approved.filter(it=>!search||it.title.toLowerCase().includes(search)||it.category.toLowerCase().includes(search));
-
-  document.getElementById('topSellingGrid').innerHTML = top.length ? top.map(renderItemCard).join('') : '<div style="grid-column:1/3;text-align:center;padding:10px;opacity:0.5;font-size:11px">No Top Selling items - Admin can set in Admin Panel > Top Selling</div>';
-  document.getElementById('trendingGrid').innerHTML = trending.length ? trending.map(renderItemCard).join('') : '<div style="grid-column:1/3;text-align:center;padding:10px;opacity:0.5;font-size:11px">No Trending items - Admin can set in Admin Panel > Trending</div>';
-  document.getElementById('market').innerHTML = filtered.length ? filtered.map(renderItemCard).join('') : '<div style="grid-column:1/3;text-align:center;padding:20px;opacity:0.5">No approved items yet</div>';
-  document.getElementById('allCount').innerText = filtered.length+' items';
-  document.getElementById('pendingCount').innerText = items.filter(i=>i.status==='pending').length;
+  const top=approved.filter(i=>i.isTop); const trending=approved.filter(i=>i.isTrending);
+  let filtered=approved.filter(it=>!search||it.title.toLowerCase().includes(search));
+  document.getElementById('topSellingGrid').innerHTML = top.length ? top.map(renderItemCard).join('') : '<div style="grid-column:1/3;text-align:center;padding:12px;opacity:0.4;font-size:10px;font-family:Orbitron">No Top Selling - Admin selects in Admin Panel</div>';
+  document.getElementById('trendingGrid').innerHTML = trending.length ? trending.map(renderItemCard).join('') : '<div style="grid-column:1/3;text-align:center;padding:12px;opacity:0.4;font-size:10px;font-family:Orbitron">No Trending - Admin selects in Admin Panel</div>';
+  document.getElementById('market').innerHTML = filtered.length ? filtered.map(renderItemCard).join('') : '<div style="grid-column:1/3;text-align:center;padding:20px;opacity:0.5">No live approved items - post items and ask admin to approve</div>';
+  document.getElementById('allCount').innerText = filtered.length+' LIVE items';
+  const pendingCount = items.filter(i=>i.status==='pending').length;
+  document.getElementById('pendingCount').innerText = pendingCount;
+  document.getElementById('status').innerHTML = `⚡ LIVE: ${approved.length} Approved | ⏳ PENDING: ${pendingCount} | ADMIN: 0789313670 PIN 1990`;
 }
-
 function renderItemCard(it){
-  const wa='https://wa.me/27'+it.sellerPhone.slice(-9)+'?text=Hi '+encodeURIComponent(it.sellerName)+' I want '+encodeURIComponent(it.title)+' R'+it.price;
-  return '<div class="item">'+
-    (it.isTop?'<span class="badge badge-top">🔥 TOP SELLING</span>':'')+
-    (it.isTrending && !it.isTop ?'<span class="badge badge-trending">📈 TRENDING</span>':'')+
-    (it.isTrending && it.isTop ?'<span class="badge badge-trending" style="top:24px">📈 TRENDING</span>':'')+
-    (it.image?'<img src="'+it.image+'">':'<div style="height:130px;background:#080a0f;display:flex;align-items:center;justify-content:center">📦</div>')+
-    '<div style="padding:8px"><b style="font-size:11px;font-family:Orbitron">'+it.title+'</b><br><span style="color:#00f2ff;font-family:Orbitron;font-size:13px">R'+it.price+'</span> <small style="opacity:0.6">'+it.condition+'</small><br><small style="opacity:0.6">📍'+it.sellerLocation+' • '+it.sellerName+'</small><br><a href="'+wa+'" target="_blank"><button style="font-size:11px;padding:7px">💬 WHATSAPP</button></a></div></div>';
+  const wa='https://wa.me/27'+it.sellerPhone.slice(-9)+'?text=Hi '+encodeURIComponent(it.sellerName)+' I want '+encodeURIComponent(it.title)+' R'+it.price+' from Tshepisong Digital AI Market';
+  return `<div class="item">${it.isTop?'<span class="badge badge-top">🔥 TOP</span>':''}${it.isTrending?`<span class="badge badge-trend" style="${it.isTop?'top:24px':''}">📈 TRENDING</span>`:''}${it.image?`<img src="${it.image}">`:'<div style="height:130px;background:#080a0f;display:flex;align-items:center;justify-content:center">📦</div>'}<div style="padding:8px"><b style="font-size:11px;font-family:Orbitron">${it.title}</b><br><span style="color:#00f2ff;font-family:Orbitron">R${it.price}</span> <small style="opacity:0.6">${it.condition}</small><br><small style="opacity:0.5;font-size:10px">📍${it.sellerLocation} • ${it.sellerName}</small><br><a href="${wa}" target="_blank"><button class="btn-cyan" style="font-size:10px;padding:7px">💬 WHATSAPP SELLER</button></a></div></div>`;
 }
 
-// ADMIN FUNCTIONS
+// ADMIN
 function renderAdminPending(){
-  const items=getItems().filter(i=>i.status==='pending');
+  const items=getItems().filter(i=>i.status==='pending').sort((a,b)=>b.created-a.created);
   const div=document.getElementById('adminPending');
-  if(!items.length){ div.innerHTML='<div style="text-align:center;padding:20px"><h3>✅ No Pending Items</h3><p style="opacity:0.6;font-size:12px">All items reviewed! New seller posts will appear here for approval</p></div>'; return; }
-  div.innerHTML='<h3>⏳ PENDING APPROVAL ('+items.length+')</h3>'+items.map(it=>'<div class="card" style="margin:8px 0;border-left:4px solid #ffaa00"><div style="display:flex;gap:10px"><div style="width:70px;height:70px;background:#333;border-radius:8px;overflow:hidden">'+(it.image?'<img src="'+it.image+'" style="width:100%;height:100%;object-fit:cover">':'📦')+'</div><div style="flex:1"><b>'+it.title+'</b> R'+it.price+'<br><small>👤 '+it.sellerName+' ('+it.sellerPhone+')<br>📍 '+it.sellerLocation+' | '+it.category+' - '+it.condition+'<br>📝 '+it.desc+'</small></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px"><button onclick="approveItem(\''+it.id+'\')" class="green">✅ APPROVE</button><button onclick="rejectItem(\''+it.id+'\')" class="red">❌ REJECT</button></div><a href="https://wa.me/27'+it.sellerPhone.slice(-9)+'" target="_blank"><button style="background:#1e2a4a;font-size:11px">💬 WhatsApp Seller</button></a></div>').join('');
+  if(!items.length){ div.innerHTML='<div style="text-align:center;padding:20px"><h3 style="font-family:Orbitron">✅ No Pending Items</h3><p style="font-size:11px;opacity:0.6">When sellers post, items appear here for approval before going live</p></div>'; return; }
+  div.innerHTML='<div style="background:linear-gradient(90deg,#ffaa00,#ff6b00);color:#000;padding:8px;border-radius:8px;font-family:Orbitron;font-size:11px;font-weight:bold;margin-bottom:10px">⏳ '+items.length+' ITEMS WAITING FOR YOUR APPROVAL - Approve to make them LIVE!</div>'+items.map(it=>`<div class="card" style="margin:8px 0;border-left:5px solid #ffaa00"><div style="display:flex;gap:10px"><div style="width:80px;height:80px;background:#333;border-radius:10px;overflow:hidden;flex-shrink:0">${it.image?`<img src="${it.image}" style="width:100%;height:100%;object-fit:cover">`:'<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center">📦</div>'}</div><div style="flex:1"><b style="font-size:13px">${it.title}</b> <span style="color:#00f2ff;font-family:Orbitron">R${it.price}</span><br><small>👤 ${it.sellerName} (${it.sellerPhone})<br>📍 ${it.sellerLocation} | ${it.category} | ${it.condition}<br>📝 ${it.desc}<br>⏰ ${new Date(it.created).toLocaleString()}</small></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px"><button onclick="approveItem('${it.id}')" class="btn-green" style="padding:12px">✅ APPROVE & GO LIVE</button><button onclick="rejectItem('${it.id}')" class="btn-red" style="padding:12px">❌ REJECT</button></div><a href="https://wa.me/27${it.sellerPhone.slice(-9)}?text=Hi ${encodeURIComponent(it.sellerName)} Your item ${encodeURIComponent(it.title)} is ${it.status}" target="_blank"><button class="btn-dark" style="font-size:11px">💬 WhatsApp Seller</button></a></div>`).join('');
 }
 function renderAdminApproved(){
   const items=getItems().filter(i=>i.status==='approved');
   const div=document.getElementById('adminApproved');
   if(!items.length){ div.innerHTML='<p>No approved items</p>'; return; }
-  div.innerHTML='<h3>✅ APPROVED ITEMS ('+items.length+')</h3>'+items.map(it=>'<div class="card" style="margin:8px 0"><div style="display:flex;gap:8px;align-items:center"><div style="width:50px;height:50px;background:#333;border-radius:6px;overflow:hidden">'+(it.image?'<img src="'+it.image+'" style="width:100%;height:100%;object-fit:cover">':'📦')+'</div><div style="flex:1"><b>'+it.title+'</b> R'+it.price+'<br><small>'+it.sellerName+'</small> '+(it.isTop?'<span class="badge badge-top" style="position:static">TOP</span>':'')+(it.isTrending?'<span class="badge badge-trending" style="position:static">TRENDING</span>':'')+'</div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:6px"><button onclick="toggleTop(\''+it.id+'\')" class="'+(it.isTop?'yellow':'')+'" style="font-size:10px;padding:6px">'+(it.isTop?'★ TOP':'☆ TOP')+'</button><button onclick="toggleTrend(\''+it.id+'\')" class="'+(it.isTrending?'purple':'')+'" style="font-size:10px;padding:6px">'+(it.isTrending?'★ TREND':'☆ TREND')+'</button><button onclick="rejectItem(\''+it.id+'\')" class="red" style="font-size:10px;padding:6px">REMOVE</button></div></div>').join('');
+  div.innerHTML='<h3 style="font-family:Orbitron;font-size:11px">✅ LIVE APPROVED ITEMS ('+items.length+') - Visible in Market</h3>'+items.map(it=>`<div class="card" style="margin:8px 0;border-left:4px solid #00ff88"><div style="display:flex;gap:8px;align-items:center"><div style="width:50px;height:50px;background:#333;border-radius:8px;overflow:hidden">${it.image?`<img src="${it.image}" style="width:100%;height:100%;object-fit:cover">`:'📦'}</div><div style="flex:1"><b>${it.title}</b> R${it.price} <small>${it.sellerName}</small><br>${it.isTop?'<span class="badge badge-top" style="position:static">TOP</span>':''} ${it.isTrending?'<span class="badge badge-trend" style="position:static">TRENDING</span>':''}</div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:8px"><button onclick="toggleTop('${it.id}')" class="${it.isTop?'btn-yellow':'btn-dark'}" style="font-size:10px;padding:6px">${it.isTop?'★ TOP':'☆ TOP'}</button><button onclick="toggleTrend('${it.id}')" class="${it.isTrending?'btn-purple':'btn-dark'}" style="font-size:10px;padding:6px">${it.isTrending?'★ TREND':'☆ TREND'}</button><button onclick="rejectItem('${it.id}')" class="btn-red" style="font-size:10px;padding:6px">REJECT</button></div></div>`).join('');
 }
-function renderAdminTop(){
-  const items=getItems().filter(i=>i.isTop);
-  const div=document.getElementById('adminTop');
-  div.innerHTML='<h3>🔥 TOP SELLING - You Control What Shows Here</h3><p style="font-size:11px;opacity:0.6">These items appear in TOP SELLING section on homepage</p>'+(items.length?items.map(it=>'<div class="card" style="margin:8px 0;border-left:4px solid #ffcc00"><b>'+it.title+'</b> R'+it.price+' - '+it.sellerName+'<br><button onclick="toggleTop(\''+it.id+'\')" class="red" style="width:auto;padding:5px 10px;font-size:11px">Remove from Top</button></div>').join(''):'<p>No top selling items. Go to Approved tab and click ☆ TOP to add!</p>')+'<hr><h4>Add any approved item to Top Selling:</h4>'+getItems().filter(i=>i.status==='approved'&&!i.isTop).map(it=>'<div style="display:flex;justify-content:space-between;align-items:center;background:#0d111c;padding:6px;border-radius:6px;margin:4px 0"><small>'+it.title+' R'+it.price+'</small><button onclick="toggleTop(\''+it.id+'\')" class="yellow" style="width:auto;padding:4px 8px;font-size:10px">+ TOP</button></div>').join('');
-}
-function renderAdminTrend(){
-  const items=getItems().filter(i=>i.isTrending);
-  const div=document.getElementById('adminTrend');
-  div.innerHTML='<h3>📈 TRENDING - You Control What Shows Here</h3><p style="font-size:11px;opacity:0.6">These items appear in TRENDING section</p>'+(items.length?items.map(it=>'<div class="card" style="margin:8px 0;border-left:4px solid #ff00ff"><b>'+it.title+'</b> R'+it.price+' - '+it.sellerName+'<br><button onclick="toggleTrend(\''+it.id+'\')" class="red" style="width:auto;padding:5px 10px;font-size:11px">Remove from Trending</button></div>').join(''):'<p>No trending items. Go to Approved tab and click ☆ TREND to add!</p>')+'<hr><h4>Add any approved item to Trending:</h4>'+getItems().filter(i=>i.status==='approved'&&!i.isTrending).map(it=>'<div style="display:flex;justify-content:space-between;align-items:center;background:#0d111c;padding:6px;border-radius:6px;margin:4px 0"><small>'+it.title+' R'+it.price+'</small><button onclick="toggleTrend(\''+it.id+'\')" class="purple" style="width:auto;padding:4px 8px;font-size:10px">+ TREND</button></div>').join('');
-}
-function renderAdminSellers(){ const users=getUsers(); let html='<h3>👥 SELLERS ('+Object.keys(users).length+')</h3>'; Object.values(users).forEach(u=>{ html+='<div class="card" style="margin:8px 0"><b>'+u.fullName+'</b> '+u.phone+' PIN:'+u.pin+'<br><small>📍'+u.location+'</small><br><button onclick="resetSellerPin(\''+u.phone+'\')" class="blue" style="width:auto;padding:5px 10px">Reset PIN</button> <button onclick="deleteSeller(\''+u.phone+'\')" class="red" style="width:auto;padding:5px 10px">Delete</button></div>'; }); document.getElementById('adminSellers').innerHTML=html; }
+function renderAdminRejected(){ const items=getItems().filter(i=>i.status==='rejected'); const div=document.getElementById('adminRejected'); div.innerHTML=items.length?'<h3 style="font-family:Orbitron;font-size:11px">❌ REJECTED ('+items.length+')</h3>'+items.map(it=>`<div class="card" style="margin:8px 0;border-left:4px solid #ff2a6d"><b>${it.title}</b> R${it.price} - ${it.sellerName} <button onclick="approveItem('${it.id}')" class="btn-green" style="width:auto;padding:5px 10px;font-size:11px">Re-Approve</button> <button onclick="deleteItem('${it.id}')" class="btn-red" style="width:auto;padding:5px 10px">Delete</button></div>`).join(''):'<p>No rejected items</p>'; }
+function renderAdminTop(){ const items=getItems().filter(i=>i.isTop); const div=document.getElementById('adminTop'); const approvedNotTop=getItems().filter(i=>i.status==='approved'&&!i.isTop); div.innerHTML='<h3 style="font-family:Orbitron">🔥 TOP SELLING CONTROL</h3><p style="font-size:10px;opacity:0.6">Items here show in TOP SELLING section on homepage</p>'+(items.length?items.map(it=>`<div class="card" style="border-left:4px solid #ffcc00"><b>${it.title}</b> R${it.price} <button onclick="toggleTop('${it.id}')" class="btn-red" style="width:auto;padding:5px 10px">Remove from TOP</button></div>`).join(''):'<p style="opacity:0.5">No top items - add from approved</p>')+'<hr><h4 style="font-size:11px;font-family:Orbitron">Add to TOP:</h4>'+(approvedNotTop.length?approvedNotTop.map(it=>`<div style="display:flex;justify-content:space-between;align-items:center;background:#0d111c;padding:6px;border-radius:6px;margin:4px 0"><small>${it.title} R${it.price}</small><button onclick="toggleTop('${it.id}')" class="btn-yellow" style="width:auto;padding:4px 8px;font-size:10px">+ TOP</button></div>`).join(''):'<small>No more approved items to add</small>'); }
+function renderAdminTrend(){ const items=getItems().filter(i=>i.isTrending); const div=document.getElementById('adminTrend'); const approvedNotTrend=getItems().filter(i=>i.status==='approved'&&!i.isTrending); div.innerHTML='<h3 style="font-family:Orbitron">📈 TRENDING CONTROL</h3><p style="font-size:10px;opacity:0.6">Items here show in TRENDING section</p>'+(items.length?items.map(it=>`<div class="card" style="border-left:4px solid #ff00ff"><b>${it.title}</b> R${it.price} <button onclick="toggleTrend('${it.id}')" class="btn-red" style="width:auto;padding:5px 10px">Remove from TREND</button></div>`).join(''):'<p style="opacity:0.5">No trending - add from approved</p>')+'<hr><h4 style="font-size:11px;font-family:Orbitron">Add to TRENDING:</h4>'+(approvedNotTrend.length?approvedNotTrend.map(it=>`<div style="display:flex;justify-content:space-between;align-items:center;background:#0d111c;padding:6px;border-radius:6px;margin:4px 0"><small>${it.title} R${it.price}</small><button onclick="toggleTrend('${it.id}')" class="btn-purple" style="width:auto;padding:4px 8px;font-size:10px">+ TREND</button></div>`).join(''):'<small>No more approved items to add</small>'); }
+function renderAdminSellers(){ const users=getUsers(); let html='<h3 style="font-family:Orbitron">👥 SELLERS</h3>'; Object.values(users).forEach(u=>{ html+=`<div class="card" style="margin:8px 0"><b>${u.fullName}</b> ${u.phone}<br><small>📍${u.location} PIN:${u.pin}</small><br><button onclick="resetSellerPin('${u.phone}')" class="btn-blue" style="width:auto;padding:5px 10px">Reset PIN</button> <button onclick="deleteSeller('${u.phone}')" class="btn-red" style="width:auto;padding:5px 10px">Delete</button></div>`; }); document.getElementById('adminSellers').innerHTML=html; }
 
-function approveItem(id){ let items=getItems(); items=items.map(i=>i.id===id?{...i,status:'approved'}:i); saveItems(items); alert('✅ Approved! Now visible in marketplace'); renderAdminPending(); renderMarket(); }
-function rejectItem(id){ if(!confirm('Reject/Remove this item?')) return; let items=getItems(); const item=items.find(i=>i.id===id); if(item.status==='pending'){ items=items.map(i=>i.id===id?{...i,status:'rejected'}:i); }else{ items=items.filter(i=>i.id!==id); } saveItems(items); renderAdminPending(); renderAdminApproved(); renderAdminTop(); renderAdminTrend(); renderMarket(); }
+function approveItem(id){ let items=getItems(); items=items.map(i=>i.id===id?{...i,status:'approved'}:i); saveItems(items); alert('✅ APPROVED! Item is now LIVE in marketplace!'); renderAdminPending(); renderAdminApproved(); renderMarket(); renderMyItems(); }
+function rejectItem(id){ if(!confirm('Reject this item? Seller will see rejected status')) return; let items=getItems(); const it=items.find(i=>i.id===id); if(it&&it.status==='pending'){ items=items.map(i=>i.id===id?{...i,status:'rejected'}:i); }else{ items=items.filter(i=>i.id!==id); } saveItems(items); alert('❌ Rejected/Removed'); renderAdminPending(); renderAdminApproved(); renderAdminRejected(); renderAdminTop(); renderAdminTrend(); renderMarket(); renderMyItems(); }
 function toggleTop(id){ let items=getItems(); items=items.map(i=>i.id===id?{...i,isTop:!i.isTop}:i); saveItems(items); renderAdminApproved(); renderAdminTop(); renderMarket(); }
 function toggleTrend(id){ let items=getItems(); items=items.map(i=>i.id===id?{...i,isTrending:!i.isTrending}:i); saveItems(items); renderAdminApproved(); renderAdminTrend(); renderMarket(); }
+function deleteItem(id){ if(!confirm('Delete item?')) return; let items=getItems(); items=items.filter(i=>i.id!==id); saveItems(items); renderMyItems(); renderMarket(); renderAdminPending(); renderAdminApproved(); renderAdminTop(); renderAdminTrend(); }
 function resetSellerPin(p){ const np=prompt('New PIN for '+p); if(!np||np.length<4) return; const u=getUsers(); u[p].pin=np; saveUsers(u); alert('PIN '+np); renderAdminSellers(); }
-function deleteSeller(p){ if(!confirm('Delete seller '+p+'?')) return; const u=getUsers(); delete u[p]; saveUsers(u); let it=getItems(); it=it.filter(i=>i.sellerPhone!==p); saveItems(it); renderAdminSellers(); renderMarket(); }
-function resetAdminPin(){ const oldP=document.getElementById('oldAdminPin').value.trim(); const p1=document.getElementById('newAdminPin1').value.trim(); const p2=document.getElementById('newAdminPin2').value.trim(); const a=getAdmin(); if(a.pin!==oldP){ alert('Wrong old PIN '+a.pin); return; } if(p1!==p2||p1.length<4) return; a.pin=p1; saveAdmin(a); alert('New PIN '+p1); }
-function clearAllData(){ if(prompt('Type DELETE')!=='DELETE') return; localStorage.removeItem('tshepi_users'); localStorage.removeItem('tshepi_items'); localStorage.removeItem('tshepi_items_v2'); alert('Cleared'); location.reload(); }
+function deleteSeller(p){ if(!confirm('Delete seller '+p+' and all items?')) return; const u=getUsers(); delete u[p]; saveUsers(u); let it=getItems(); it=it.filter(i=>i.sellerPhone!==p); saveItems(it); renderAdminSellers(); renderMarket(); }
 
-(function(){ getAdmin(); const cur=localStorage.getItem('tshepi_current'); const role=localStorage.getItem('tshepi_role'); if(role==='admin'){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN AI'; renderAdminPending(); } else if(cur && !cur.startsWith('ADMIN')){ const users=getUsers(); if(users[cur]){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[cur].fullName; renderMyItems(); } } renderMarket(); })();
+(function(){ getAdmin(); const cur=localStorage.getItem('tshepi_current'); const role=localStorage.getItem('tshepi_role'); if(role==='admin'){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN'; renderAdminPending(); } else if(cur&&!cur.startsWith('ADMIN')){ const users=getUsers(); if(users[cur]){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[cur].fullName; renderMyItems(); } } renderMarket(); })();
 </script>
 </body>
 </html>
