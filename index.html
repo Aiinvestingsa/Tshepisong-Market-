@@ -16,30 +16,26 @@ input,select,textarea{padding:11px;width:100%;border-radius:10px;border:1px soli
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .item{background:#0d111c;border-radius:12px;overflow:hidden;border:1px solid #1e2a4a;position:relative}
 .item img{width:100%;height:140px;object-fit:cover}
-.item video{width:100%;height:140px;object-fit:cover;background:#000}
 .badge{position:absolute;top:6px;left:6px;font-size:7px;padding:3px 6px;border-radius:10px;font-family:'Orbitron',monospace;font-weight:bold;z-index:2}
-.badge-pending{background:#ffaa00;color:#000}.badge-top{background:linear-gradient(90deg,#ffcc00,#ff6b00);color:#000}.badge-trend{background:linear-gradient(90deg,#ff00ff,#7000ff);color:#fff}.badge-count{background:rgba(0,0,0,0.8);color:#fff;top:auto;bottom:60px;right:6px;left:auto;font-size:9px}.badge-video{background:rgba(255,0,0,0.9);color:#fff;top:auto;bottom:80px;right:6px;left:auto}
+.badge-count{background:rgba(0,0,0,0.85);color:#fff;top:auto;bottom:60px;right:6px;left:auto;font-size:9px}.badge-video{background:rgba(255,0,0,0.9);color:#fff;top:auto;bottom:80px;right:6px;left:auto}.badge-top{background:linear-gradient(90deg,#ffcc00,#ff6b00);color:#000}.badge-trend{background:linear-gradient(90deg,#ff00ff,#7000ff);color:#fff}
 .hidden{display:none}
 .tabs{display:flex;gap:5px;margin:8px 0;flex-wrap:wrap}.tabs button{flex:1;padding:8px;font-size:10px;background:#1e2a4a;color:#fff}.tabs button.active{background:linear-gradient(90deg,#00f2ff,#7000ff);color:#fff}
 .admin-bg{background:#1a1030!important;border:2px solid #ff00ff!important}.seller-bg{border:2px solid #00f2ff!important}
-.preview-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:8px 0}
-.preview-box{width:100%;aspect-ratio:1;background:#0d111c;border-radius:8px;overflow:hidden;border:1px dashed #1e2a4a;position:relative;display:flex;align-items:center;justify-content:center;font-size:20px}
-.preview-box img{width:100%;height:100%;object-fit:cover}.preview-box .remove{position:absolute;top:2px;right:2px;background:#ff2a6d;color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.video-preview{width:100%;height:120px;background:#000;border-radius:10px;overflow:hidden;margin:8px 0;position:relative;display:flex;align-items:center;justify-content:center}
-.upload-label{display:block;background:#1e2a4a;padding:10px;border-radius:10px;text-align:center;font-family:Orbitron;font-size:11px;margin:5px 0;cursor:pointer;border:1px dashed #00f2ff}
-.upload-label span{color:#00f2ff}
-.gallery-dots{display:flex;gap:4px;justify-content:center;margin:5px 0}
-.gallery-dots span{width:6px;height:6px;border-radius:50%;background:#333}.gallery-dots span.active{background:#00f2ff}
+.preview-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:8px 0}
+.preview-box{aspect-ratio:1;background:#0d111c;border-radius:8px;overflow:hidden;border:1px dashed #1e2a4a;position:relative;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer}
+.preview-box img{width:100%;height:100%;object-fit:cover}.remove{position:absolute;top:2px;right:2px;background:#ff2a6d;color:#fff;border-radius:50%;width:20px;height:20px;font-size:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3}
+.upload-label{display:block;background:#1e2a4a;padding:12px;border-radius:10px;text-align:center;font-family:Orbitron;font-size:11px;margin:8px 0;cursor:pointer;border:2px dashed #00f2ff}
+.video-preview{width:100%;height:140px;background:#000;border-radius:10px;overflow:hidden;margin:8px 0;display:flex;align-items:center;justify-content:center}
 </style>
 </head>
 <body>
 <header><div class="logo"><span class="line1">TSHEPISONG MARKET PLACE</span><span class="line2">DIGITAL AI</span></div><div style="text-align:right"><div id="userTop" style="font-size:8px;font-family:'Orbitron';opacity:0.7">NOT LOGGED</div><div style="font-family:Orbitron;font-size:7px;background:linear-gradient(90deg,#00f2ff,#7000ff);padding:2px 6px;border-radius:10px">AI POWERED</div></div></header>
 
-<div id="status" class="card" style="border-left:4px solid #00f2ff;font-family:'Orbitron';font-size:9px">⚡ 5 PHOTOS + VIDEO ENABLED | ADMIN 0789313670 PIN 1990</div>
+<div id="status" class="card" style="border-left:4px solid #00f2ff;font-family:'Orbitron';font-size:9px">⚡ FIXED: 5 Photos Compressed + Video | ADMIN 0789313670 PIN 1990</div>
 
 <div id="authCard">
 <div class="card seller-bg">
-<h2 style="font-family:Orbitron;font-size:13px;color:#00f2ff;margin:0 0 10px">👥 SELLER AREA</h2>
+<h2 style="font-family:Orbitron;font-size:13px;color:#00f2ff;margin:0 0 10px">👥 SELLER AREA - Register & Login</h2>
 <div class="tabs"><button id="tabSellerReg" class="active" onclick="showSellerTab('reg')">REGISTER</button><button id="tabSellerLogin" onclick="showSellerTab('login')">LOGIN</button></div>
 <div id="sellerRegBox"><input id="r_phone" placeholder="WhatsApp: 0761234567" type="tel"><input id="r_pin" placeholder="PIN 4-digit" type="password"><input id="r_name" placeholder="Full Name"><input id="r_surname" placeholder="Surname"><select id="r_location"><option>Phase 1</option><option>Phase 2</option><option>Phase 3</option><option>Phase 4</option><option>Phase 5</option></select><button onclick="registerSeller()" class="btn-cyan">REGISTER SELLER</button></div>
 <div id="sellerLoginBox" class="hidden"><input id="l_phone" placeholder="WhatsApp" type="tel"><input id="l_pin" placeholder="PIN" type="password"><button onclick="loginSeller()" class="btn-green">LOGIN SELLER</button></div>
@@ -48,8 +44,186 @@ input,select,textarea{padding:11px;width:100%;border-radius:10px;border:1px soli
 </div>
 
 <div id="sellCard" class="card hidden seller-bg">
-<h3 style="font-family:Orbitron;font-size:12px;color:#00f2ff">➕ POST ITEM - 5 Photos + Video</h3>
+<h3 style="font-family:Orbitron;font-size:12px;color:#00f2ff">➕ POST ITEM - 5 Photos + Video (FIXED)</h3>
 <input id="p_title" placeholder="Title e.g. Jordan Shoes size 8"><select id="p_cat"><option>Clothes</option><option>Electronics</option><option>Furniture</option><option>Beauty</option><option>Kids</option><option>Cars</option><option>Other</option></select><select id="p_cond"><option>New</option><option>Like New</option><option>Used</option></select><input id="p_price" type="number" placeholder="Price R"><textarea id="p_desc" placeholder="Describe..."></textarea>
 
-<!-- 5 PHOTOS -->
-<label class="upload-label">📸 <span>ADD UP TO 5 PHOTOS</span> - Click to select (Max 5)<br><small style="opacity:0.6">First photo
+<label class="upload-label" onclick="document.getElementById('p_images').click()">📸 <span style="color:#00f2ff">CLICK TO ADD UP TO 5 PHOTOS</span><br><small>First photo = Cover | Max 5 photos | Auto-compressed</small></label>
+<input id="p_images" type="file" accept="image/*" multiple style="display:none">
+<div id="imagePreview" class="preview-grid"></div>
+<p id="photoCount" style="font-size:10px;font-family:Orbitron;color:#00f2ff;margin:0">0 / 5 photos</p>
+
+<label class="upload-label" style="border-color:#ff00ff" onclick="document.getElementById('p_video').click()">🎥 <span style="color:#ff00ff">CLICK TO ADD VIDEO (Optional)</span><br><small>Max 10MB - Shows item working</small></label>
+<input id="p_video" type="file" accept="video/*" style="display:none">
+<div id="videoPreview" class="hidden"><div class="video-preview" id="videoBox"></div><button onclick="removeVideo()" class="btn-red" style="padding:6px;font-size:10px">✕ Remove Video</button><p id="videoSize" style="font-size:10px;opacity:0.6"></p></div>
+
+<button onclick="sellItem()" class="btn-cyan">⚡ SEND WITH PHOTOS & VIDEO TO ADMIN APPROVAL</button>
+<button onclick="logout()" class="btn-dark">Logout</button>
+<h4 style="font-family:Orbitron;font-size:11px;margin-top:15px;color:#ffaa00">📦 MY ITEMS</h4><div id="myItems"></div>
+</div>
+
+<div id="adminPanel" class="card hidden admin-bg">
+<h2 style="font-family:Orbitron;font-size:12px">👑 ADMIN PANEL - 0789313670</h2>
+<div class="tabs"><button id="atPending" class="active" onclick="showAdminTab('pending')">⏳ PENDING (<span id="pendingCount">0</span>)</button><button id="atApproved" onclick="showAdminTab('approved')">✅ LIVE</button><button id="atRejected" onclick="showAdminTab('rejected')">❌ REJECT</button><button id="atTop" onclick="showAdminTab('top')">🔥 TOP</button><button id="atTrend" onclick="showAdminTab('trend')">📈 TREND</button><button id="atSellers" onclick="showAdminTab('sellers')">👥 SELLERS</button></div>
+<div id="adminPending"></div><div id="adminApproved" class="hidden"></div><div id="adminRejected" class="hidden"></div><div id="adminTop" class="hidden"></div><div id="adminTrend" class="hidden"></div><div id="adminSellers" class="hidden"></div>
+</div>
+
+<div class="card" style="background:#080a0f;border-color:#00f2ff"><div style="font-family:Orbitron;font-size:11px;color:#00f2ff">🔥 TOP SELLING</div><div id="topSellingGrid" class="grid" style="margin-top:8px"></div></div>
+<div class="card" style="background:#080a0f;border-color:#ff00ff"><div style="font-family:Orbitron;font-size:11px;color:#ff00ff">📈 TRENDING</div><div id="trendingGrid" class="grid" style="margin-top:8px"></div></div>
+<div class="card"><div style="font-family:Orbitron;font-size:11px;color:#00f2ff;display:flex;justify-content:space-between"><span>🛒 LIVE MARKET</span><span id="allCount" style="font-size:9px;opacity:0.6"></span></div><input id="search" placeholder="Search..." oninput="renderMarket()"><div id="market" class="grid" style="margin-top:10px"></div></div>
+
+<div id="galleryModal" class="hidden" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.97);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:15px">
+<div style="width:100%;max-width:420px"><div id="modalImageBox" style="width:100%;height:320px;background:#111;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center"></div><div id="modalDots" style="display:flex;gap:5px;justify-content:center;margin:10px 0"></div><div id="modalThumbs" style="display:flex;gap:6px;overflow-x:auto;padding:5px 0"></div><div id="modalVideoBox" style="margin-top:10px"></div><button onclick="closeGallery()" class="btn-dark" style="margin-top:12px">✕ Close</button></div>
+</div>
+
+<script>
+const ADMIN_NUMBER='0789313670'; const ADMIN_WA='27789313670'; const ADMIN_PIN='1990';
+let selectedImages=[]; let selectedVideo='';
+
+function cleanPhone(p){ return p.replace(/\D/g,'').slice(-10); }
+function getUsers(){ try{ return JSON.parse(localStorage.getItem('tshepi_users')||'{}'); }catch{ return {}; } }
+function saveUsers(u){ localStorage.setItem('tshepi_users', JSON.stringify(u)); }
+function getItems(){ try{ return JSON.parse(localStorage.getItem('tshepi_items_v4')||localStorage.getItem('tshepi_items')||'[]'); }catch{ return []; } }
+function saveItems(i){ localStorage.setItem('tshepi_items_v4', JSON.stringify(i)); localStorage.setItem('tshepi_items', JSON.stringify(i)); }
+function getAdmin(){ try{ let a=JSON.parse(localStorage.getItem('tshepi_admin')||'null'); if(!a){ a={phone:ADMIN_NUMBER,pin:ADMIN_PIN}; localStorage.setItem('tshepi_admin',JSON.stringify(a)); } return a; }catch{ let a={phone:ADMIN_NUMBER,pin:ADMIN_PIN}; localStorage.setItem('tshepi_admin',JSON.stringify(a)); return a; } }
+
+function showSellerTab(t){ document.getElementById('sellerRegBox').className=t==='reg'?'':'hidden'; document.getElementById('sellerLoginBox').className=t==='login'?'':'hidden'; document.getElementById('tabSellerReg').className=t==='reg'?'active':''; document.getElementById('tabSellerLogin').className=t==='login'?'active':''; }
+function showAdminTab(t){ ['pending','approved','rejected','top','trend','sellers'].forEach(x=>{ const el=document.getElementById('admin'+x.charAt(0).toUpperCase()+x.slice(1)); if(el) el.className=x===t?'':'hidden'; }); document.querySelectorAll('#adminPanel .tabs button').forEach(b=>b.classList.remove('active')); document.getElementById('at'+t.charAt(0).toUpperCase()+t.slice(1)).classList.add('active'); if(t==='pending') renderAdminPending(); if(t==='approved') renderAdminApproved(); if(t==='rejected') renderAdminRejected(); if(t==='top') renderAdminTop(); if(t==='trend') renderAdminTrend(); if(t==='sellers') renderAdminSellers(); }
+
+// COMPRESS IMAGE TO FIT 5 PHOTOS IN STORAGE
+function compressImage(file, maxWidth=800, quality=0.65){
+  return new Promise(resolve=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=new Image();
+      img.onload=()=>{
+        const canvas=document.createElement('canvas');
+        let w=img.width, h=img.height;
+        if(w>maxWidth){ h=h*(maxWidth/w); w=maxWidth; }
+        canvas.width=w; canvas.height=h;
+        const ctx=canvas.getContext('2d');
+        ctx.drawImage(img,0,0,w,h);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.src=e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+document.getElementById('p_images').addEventListener('change', async function(){
+  const files=Array.from(this.files);
+  if(selectedImages.length + files.length > 5){ alert('Max 5 photos! You have '+selectedImages.length+' already. Only '+(5-selectedImages.length)+' more allowed'); this.value=''; return; }
+  document.getElementById('photoCount').innerText='Compressing '+files.length+' photos...';
+  for(let file of files){
+    if(selectedImages.length>=5) break;
+    const compressed=await compressImage(file);
+    selectedImages.push(compressed);
+  }
+  renderImagePreviews();
+  this.value='';
+});
+
+function renderImagePreviews(){
+  const div=document.getElementById('imagePreview');
+  div.innerHTML=selectedImages.map((img,i)=>`<div class="preview-box"><img src="${img}"><div class="remove" onclick="removeImage(${i})">✕</div><div style="position:absolute;bottom:2px;left:2px;background:${i===0?'#00f2ff':'#000'};color:${i===0?'#000':'#fff'};font-size:7px;padding:2px 4px;border-radius:4px;font-family:Orbitron">${i===0?'COVER':i+1}</div></div>`).join('') + Array(Math.max(0,5-selectedImages.length)).fill(0).map(()=>`<div class="preview-box" onclick="document.getElementById('p_images').click()">+<br><small style="font-size:8px">Add</small></div>`).join('');
+  document.getElementById('photoCount').innerText=selectedImages.length+' / 5 photos selected'+(selectedImages.length>0?' - First is main cover. All compressed to save space':'');
+}
+function removeImage(i){ selectedImages.splice(i,1); renderImagePreviews(); }
+
+document.getElementById('p_video').addEventListener('change', function(){
+  const file=this.files[0]; if(!file) return;
+  if(file.size>10*1024*1024){ alert('Video too big! Max 10MB. Your video is '+(file.size/1024/1024).toFixed(1)+'MB. Please trim or compress video'); this.value=''; return; }
+  const reader=new FileReader();
+  reader.onload=e=>{
+    selectedVideo=e.target.result;
+    document.getElementById('videoBox').innerHTML=`<video src="${selectedVideo}" controls style="width:100%;height:100%"></video>`;
+    document.getElementById('videoPreview').classList.remove('hidden');
+    document.getElementById('videoSize').innerText='Video size: '+(file.size/1024/1024).toFixed(2)+' MB';
+  };
+  reader.readAsDataURL(file);
+});
+function removeVideo(){ selectedVideo=''; document.getElementById('videoPreview').classList.add('hidden'); document.getElementById('p_video').value=''; }
+
+function loginAdmin(){ const phone=cleanPhone(document.getElementById('a_phone').value); const pin=document.getElementById('a_pin').value.trim(); const admin=getAdmin(); if(phone!==ADMIN_NUMBER||pin!==admin.pin){ alert('Wrong admin PIN is '+admin.pin); return; } localStorage.setItem('tshepi_current','ADMIN_'+ADMIN_NUMBER); localStorage.setItem('tshepi_role','admin'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN'; renderAdminPending(); }
+function registerSeller(){ const phone=cleanPhone(document.getElementById('r_phone').value); const pin=document.getElementById('r_pin').value.trim(); const name=document.getElementById('r_name').value.trim(); const surname=document.getElementById('r_surname').value.trim(); const loc=document.getElementById('r_location').value; if(phone===ADMIN_NUMBER){ alert('Reserved for admin'); return; } if(phone.length<10||pin.length<4||!name||!surname){ alert('Fill all'); return; } const users=getUsers(); if(users[phone]){ alert('Already registered!'); showSellerTab('login'); return; } users[phone]={phone,pin,name,surname,fullName:name+' '+surname,location:loc,joined:Date.now()}; saveUsers(users); localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=name+' '+surname; renderMyItems(); renderImagePreviews(); }
+function loginSeller(){ const phone=cleanPhone(document.getElementById('l_phone').value); const pin=document.getElementById('l_pin').value.trim(); const users=getUsers(); if(!users[phone]||users[phone].pin!==pin){ alert('Wrong login'); return; } localStorage.setItem('tshepi_current',phone); localStorage.setItem('tshepi_role','seller'); document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[phone].fullName; renderMyItems(); renderImagePreviews(); }
+function logout(){ localStorage.removeItem('tshepi_current'); localStorage.removeItem('tshepi_role'); location.reload(); }
+
+async function sellItem(){
+  const cur=localStorage.getItem('tshepi_current'); const users=getUsers(); const seller=users[cur]; if(!seller) return;
+  const title=document.getElementById('p_title').value.trim(); const cat=document.getElementById('p_cat').value; const cond=document.getElementById('p_cond').value; const price=parseInt(document.getElementById('p_price').value); const desc=document.getElementById('p_desc').value.trim();
+  if(!title||!price){ alert('Title+Price required'); return; }
+  if(selectedImages.length===0){ alert('Add at least 1 photo! Click the photo box'); return; }
+  try{
+    const items=getItems();
+    const newItem={id:Date.now()+'',title,category:cat,condition:cond,price,desc,sellerPhone:cur,sellerName:seller.fullName,sellerLocation:seller.location,images:selectedImages,image:selectedImages[0],video:selectedVideo,status:'pending',isTop:false,isTrending:false,created:Date.now()};
+    items.unshift(newItem); saveItems(items);
+    document.getElementById('p_title').value=''; document.getElementById('p_price').value=''; document.getElementById('p_desc').value=''; selectedImages=[]; selectedVideo=''; renderImagePreviews(); document.getElementById('videoPreview').classList.add('hidden');
+    alert('✅ SUCCESS! Item with '+newItem.images.length+' photos'+(newItem.video?' + video':'')+' sent to Admin 0789313670 for approval!'); renderMyItems();
+  }catch(e){
+    alert('Storage full! Try fewer photos or smaller video. Error: '+e.message+'\nTip: Use 3 photos instead of 5, and no video for now');
+  }
+}
+
+function renderMyItems(){
+  const cur=localStorage.getItem('tshepi_current'); if(!cur||cur.startsWith('ADMIN')) return;
+  const items=getItems().filter(i=>i.sellerPhone===cur).sort((a,b)=>b.created-a.created);
+  const div=document.getElementById('myItems'); if(!div) return;
+  if(!items.length){ div.innerHTML='<small style="opacity:0.5">No items yet</small>'; return; }
+  div.innerHTML=items.map(it=>{
+    const waAdminMsg=`Hi Admin 0789313670 👋%0APlease approve:%0A📦 *${encodeURIComponent(it.title)}*%0A💰 R${it.price}%0A📸 ${it.images?it.images.length:1} photos${it.video?' + video':''}`;
+    return `<div style="background:#0d111c;padding:10px;border-radius:10px;margin:8px 0;border-left:4px solid ${it.status==='pending'?'#ffaa00':it.status==='approved'?'#00ff88':'#ff2a6d'}"><div style="display:flex;gap:8px"><div style="width:60px;height:60px;background:#333;border-radius:8px;overflow:hidden;position:relative">${it.images&&it.images[0]?`<img src="${it.images[0]}" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;bottom:2px;right:2px;background:rgba(0,0,0,0.8);color:#fff;font-size:8px;padding:2px 4px;border-radius:4px">📸${it.images.length}${it.video?' 🎥':''}</div>`:'📦'}</div><div style="flex:1"><b style="font-size:12px">${it.title}</b> R${it.price}<br><small style="color:${it.status==='pending'?'#ffaa00':'#00ff88'};font-family:Orbitron;font-size:9px">${it.status.toUpperCase()} • 📸${it.images?it.images.length:0} ${it.video?'• 🎥':''}</small></div></div><div style="display:flex;gap:5px;margin-top:6px"><button onclick="openGallery('${it.id}')" class="btn-blue" style="font-size:10px;padding:6px;flex:1">👁️ VIEW ${it.images?it.images.length:0} PHOTOS${it.video?' + VIDEO':''}</button><a href="https://wa.me/${ADMIN_WA}?text=${waAdminMsg}" target="_blank" style="flex:1;text-decoration:none"><button class="btn-green" style="font-size:10px;padding:6px;background:#25D366">💬 WHATSAPP ADMIN</button></a></div><button onclick="deleteItem('${it.id}')" class="btn-dark" style="font-size:10px;padding:5px;margin-top:5px">Delete</button></div>`;
+  }).join('');
+}
+function renderMarket(){
+  const items=getItems(); const search=document.getElementById('search').value.toLowerCase();
+  const approved=items.filter(i=>i.status==='approved'); const top=approved.filter(i=>i.isTop); const trending=approved.filter(i=>i.isTrending);
+  let filtered=approved.filter(it=>!search||it.title.toLowerCase().includes(search));
+  document.getElementById('topSellingGrid').innerHTML=top.length?top.map(renderItemCard).join(''):'<div style="grid-column:1/3;text-align:center;padding:10px;opacity:0.4;font-size:10px;font-family:Orbitron">No Top Selling</div>';
+  document.getElementById('trendingGrid').innerHTML=trending.length?trending.map(renderItemCard).join(''):'<div style="grid-column:1/3;text-align:center;padding:10px;opacity:0.4;font-size:10px;font-family:Orbitron">No Trending</div>';
+  document.getElementById('market').innerHTML=filtered.length?filtered.map(renderItemCard).join(''):'<div style="grid-column:1/3;text-align:center;padding:20px;opacity:0.5">No live items - post 5 photos + video and get approval!</div>';
+  document.getElementById('allCount').innerText=filtered.length+' LIVE'; document.getElementById('pendingCount').innerText=items.filter(i=>i.status==='pending').length;
+}
+function renderItemCard(it){
+  const wa='https://wa.me/27'+it.sellerPhone.slice(-9)+'?text=Hi '+encodeURIComponent(it.sellerName)+' I want '+encodeURIComponent(it.title);
+  const count=it.images?it.images.length:0;
+  return `<div class="item"><div onclick="openGallery('${it.id}')" style="cursor:pointer">${it.images&&it.images[0]?`<img src="${it.images[0]}">`:'<div style="height:140px;background:#080a0f;display:flex;align-items:center;justify-content:center">📦</div>'}${it.isTop?'<span class="badge badge-top">🔥 TOP</span>':''}${it.isTrending?`<span class="badge badge-trend" style="${it.isTop?'top:24px':''}">📈 TREND</span>`:''}<span class="badge badge-count">📸 ${count}</span>${it.video?'<span class="badge badge-video">🎥 VIDEO</span>':''}</div><div style="padding:8px"><b style="font-size:11px;font-family:Orbitron">${it.title}</b><br><span style="color:#00f2ff;font-family:Orbitron">R${it.price}</span><br><div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px"><button onclick="openGallery('${it.id}')" class="btn-blue" style="font-size:9px;padding:6px">👁️ ${count} PICS</button><a href="${wa}" target="_blank"><button class="btn-cyan" style="font-size:9px;padding:6px">💬 WA</button></a></div></div></div>`;
+}
+
+let currentGalleryItem=null; let currentGalleryIndex=0;
+function openGallery(id){ const it=getItems().find(i=>i.id===id); if(!it) return; currentGalleryItem=it; currentGalleryIndex=0; document.getElementById('galleryModal').classList.remove('hidden'); showGalleryImage(0); }
+function showGalleryImage(idx){
+  if(!currentGalleryItem) return;
+  const images=currentGalleryItem.images||[currentGalleryItem.image]; currentGalleryIndex=idx;
+  document.getElementById('modalImageBox').innerHTML=`<img src="${images[idx]}" style="width:100%;height:100%;object-fit:contain">`;
+  document.getElementById('modalDots').innerHTML=images.map((_,i)=>`<span style="width:8px;height:8px;border-radius:50%;background:${i===idx?'#00f2ff':'#333'};display:inline-block;margin:0 3px;cursor:pointer" onclick="showGalleryImage(${i})"></span>`).join('');
+  document.getElementById('modalThumbs').innerHTML=images.map((img,i)=>`<img src="${img}" onclick="showGalleryImage(${i})" style="width:55px;height:55px;object-fit:cover;border-radius:8px;cursor:pointer;border:${i===idx?'2px solid #00f2ff':'1px solid #333'}">`).join('') + (currentGalleryItem.video?`<div style="width:55px;height:55px;background:#000;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid #ff00ff" onclick="showGalleryVideo()">🎥<br><small style="font-size:7px">VIDEO</small></div>`:'');
+  document.getElementById('modalVideoBox').innerHTML=currentGalleryItem.video?`<video src="${currentGalleryItem.video}" controls style="width:100%;max-height:200px;border-radius:10px;background:#000"></video>`:'';
+}
+function showGalleryVideo(){ document.getElementById('modalImageBox').innerHTML=`<video src="${currentGalleryItem.video}" controls autoplay style="width:100%;height:100%;background:#000"></video>`; }
+function closeGallery(){ document.getElementById('galleryModal').classList.add('hidden'); }
+
+function renderAdminPending(){
+  const items=getItems().filter(i=>i.status==='pending').sort((a,b)=>b.created-a.created);
+  const div=document.getElementById('adminPending');
+  if(!items.length){ div.innerHTML='<div style="text-align:center;padding:20px"><h3 style="font-family:Orbitron">✅ No Pending</h3></div>'; return; }
+  div.innerHTML='<div style="background:linear-gradient(90deg,#ffaa00,#ff6b00);color:#000;padding:8px;border-radius:8px;font-family:Orbitron;font-size:11px;font-weight:bold;margin-bottom:10px">⏳ '+items.length+' ITEMS WITH PHOTOS + VIDEO WAITING</div>'+items.map(it=>`<div class="card" style="margin:8px 0;border-left:5px solid #ffaa00"><div style="display:flex;gap:10px"><div style="width:80px;height:80px;background:#333;border-radius:10px;overflow:hidden;position:relative">${it.images&&it.images[0]?`<img src="${it.images[0]}" style="width:100%;height:100%;object-fit:cover"><div style="position:absolute;bottom:2px;right:2px;background:rgba(0,0,0,0.8);color:#fff;font-size:8px;padding:2px 4px;border-radius:4px">📸${it.images.length}${it.video?' 🎥':''}</div>`:'📦'}</div><div style="flex:1"><b>${it.title}</b> R${it.price}<br><small>👤 ${it.sellerName} | 📸${it.images?it.images.length:0} photos ${it.video?'🎥 video':''}<br>📝 ${it.desc}</small></div></div><button onclick="openGallery('${it.id}')" class="btn-blue" style="font-size:11px;margin-top:6px">👁️ VIEW ${it.images?it.images.length:0} PHOTOS ${it.video?'+ VIDEO':''}</button><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px"><button onclick="approveItem('${it.id}')" class="btn-green">✅ APPROVE LIVE</button><button onclick="rejectItem('${it.id}')" class="btn-red">❌ REJECT</button></div></div>`).join('');
+}
+function renderAdminApproved(){ const items=getItems().filter(i=>i.status==='approved'); document.getElementById('adminApproved').innerHTML=items.length?'<h3 style="font-family:Orbitron;font-size:11px">✅ LIVE ('+items.length+')</h3>'+items.map(it=>`<div class="card" style="margin:8px 0;border-left:4px solid #00ff88"><div style="display:flex;gap:8px"><div style="width:50px;height:50px;background:#333;border-radius:8px;overflow:hidden">${it.images&&it.images[0]?`<img src="${it.images[0]}" style="width:100%;height:100%;object-fit:cover">`:'📦'}</div><div style="flex:1"><b>${it.title}</b> R${it.price} 📸${it.images?it.images.length:0}${it.video?' 🎥':''}<br><small>${it.sellerName}</small></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:8px"><button onclick="toggleTop('${it.id}')" class="${it.isTop?'btn-yellow':'btn-dark'}" style="font-size:10px;padding:6px">${it.isTop?'★ TOP':'☆ TOP'}</button><button onclick="toggleTrend('${it.id}')" class="${it.isTrending?'btn-purple':'btn-dark'}" style="font-size:10px;padding:6px">${it.isTrending?'★ TREND':'☆ TREND'}</button><button onclick="rejectItem('${it.id}')" class="btn-red" style="font-size:10px;padding:6px">REJECT</button></div></div>`).join(''):'<p>No approved</p>'; }
+function renderAdminRejected(){ const items=getItems().filter(i=>i.status==='rejected'); document.getElementById('adminRejected').innerHTML=items.length?items.map(it=>`<div class="card"><b>${it.title}</b> <button onclick="approveItem('${it.id}')" class="btn-green" style="width:auto;padding:5px">Re-Approve</button> <button onclick="deleteItem('${it.id}')" class="btn-red" style="width:auto;padding:5px">Delete</button></div>`).join(''):'<p>No rejected</p>'; }
+function renderAdminTop(){ const items=getItems().filter(i=>i.isTop); const notTop=getItems().filter(i=>i.status==='approved'&&!i.isTop); document.getElementById('adminTop').innerHTML='<h3>🔥 TOP</h3>'+(items.map(it=>`<div class="card" style="border-left:4px solid #ffcc00"><b>${it.title}</b> <button onclick="toggleTop('${it.id}')" class="btn-red" style="width:auto;padding:5px">Remove</button></div>`).join('')||'<p>No top</p>')+'<hr>'+notTop.map(it=>`<div style="display:flex;justify-content:space-between;background:#0d111c;padding:6px;border-radius:6px;margin:4px 0"><small>${it.title}</small><button onclick="toggleTop('${it.id}')" class="btn-yellow" style="width:auto;padding:4px 8px;font-size:10px">+ TOP</button></div>`).join(''); }
+function renderAdminTrend(){ const items=getItems().filter(i=>i.isTrending); const notTrend=getItems().filter(i=>i.status==='approved'&&!i.isTrending); document.getElementById('adminTrend').innerHTML='<h3>📈 TRENDING</h3>'+(items.map(it=>`<div class="card" style="border-left:4px solid #ff00ff"><b>${it.title}</b> <button onclick="toggleTrend('${it.id}')" class="btn-red" style="width:auto;padding:5px">Remove</button></div>`).join('')||'<p>No trending</p>')+'<hr>'+notTrend.map(it=>`<div style="display:flex;justify-content:space-between;background:#0d111c;padding:6px;border-radius:6px;margin:4px 0"><small>${it.title}</small><button onclick="toggleTrend('${it.id}')" class="btn-purple" style="width:auto;padding:4px 8px;font-size:10px">+ TREND</button></div>`).join(''); }
+function renderAdminSellers(){ const users=getUsers(); let html='<h3>👥 SELLERS</h3>'; Object.values(users).forEach(u=>{ html+=`<div class="card"><b>${u.fullName}</b> ${u.phone}<br><small>PIN:${u.pin}</small><br><button onclick="resetSellerPin('${u.phone}')" class="btn-blue" style="width:auto;padding:5px">Reset PIN</button> <button onclick="deleteSeller('${u.phone}')" class="btn-red" style="width:auto;padding:5px">Delete</button></div>`; }); document.getElementById('adminSellers').innerHTML=html; }
+
+function approveItem(id){ let items=getItems(); items=items.map(i=>i.id===id?{...i,status:'approved'}:i); saveItems(items); alert('✅ Approved!'); renderAdminPending(); renderAdminApproved(); renderMarket(); renderMyItems(); }
+function rejectItem(id){ if(!confirm('Reject?')) return; let items=getItems(); const it=items.find(i=>i.id===id); if(it&&it.status==='pending'){ items=items.map(i=>i.id===id?{...i,status:'rejected'}:i); }else{ items=items.filter(i=>i.id!==id); } saveItems(items); renderAdminPending(); renderAdminApproved(); renderAdminRejected(); renderAdminTop(); renderAdminTrend(); renderMarket(); renderMyItems(); }
+function toggleTop(id){ let items=getItems(); items=items.map(i=>i.id===id?{...i,isTop:!i.isTop}:i); saveItems(items); renderAdminApproved(); renderAdminTop(); renderMarket(); }
+function toggleTrend(id){ let items=getItems(); items=items.map(i=>i.id===id?{...i,isTrending:!i.isTrending}:i); saveItems(items); renderAdminApproved(); renderAdminTrend(); renderMarket(); }
+function deleteItem(id){ if(!confirm('Delete?')) return; let items=getItems(); items=items.filter(i=>i.id!==id); saveItems(items); renderMyItems(); renderMarket(); renderAdminPending(); renderAdminApproved(); }
+function resetSellerPin(p){ const np=prompt('New PIN for '+p); if(!np||np.length<4) return; const u=getUsers(); u[p].pin=np; saveUsers(u); alert('PIN '+np); renderAdminSellers(); }
+function deleteSeller(p){ if(!confirm('Delete seller '+p+'?')) return; const u=getUsers(); delete u[p]; saveUsers(u); let it=getItems(); it=it.filter(i=>i.sellerPhone!==p); saveItems(it); renderAdminSellers(); renderMarket(); }
+
+(function(){ getAdmin(); renderImagePreviews(); const cur=localStorage.getItem('tshepi_current'); const role=localStorage.getItem('tshepi_role'); if(role==='admin'){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('adminPanel').classList.remove('hidden'); document.getElementById('userTop').innerText='👑 ADMIN'; renderAdminPending(); } else if(cur&&!cur.startsWith('ADMIN')){ const users=getUsers(); if(users[cur]){ document.getElementById('authCard').classList.add('hidden'); document.getElementById('sellCard').classList.remove('hidden'); document.getElementById('userTop').innerText=users[cur].fullName; renderMyItems(); } } renderMarket(); })();
+</script>
+</body>
+</html>
